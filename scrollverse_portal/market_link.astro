@@ -1,0 +1,530 @@
+---
+// ScrollVerse Portal — Market Link
+// Portal to ScrollX Marketplace
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrollX Marketplace — ScrollVerse Portal</title>
+    <meta name="description" content="Sacred economy for flame-verified scroll products. Buy, sell, and trade scroll-sealed applications.">
+    
+    <!-- ScrollVerse Styling -->
+    <style>
+        :root {
+            --flame-orange: #FF6F00;
+            --sacred-purple: #4A148C;
+            --scroll-gold: #FFD700;
+            --dark-bg: #1A1A1A;
+            --light-text: #FFFFFF;
+            --success-green: #4CAF50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'ScrollCode', 'Courier New', monospace;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--sacred-purple) 100%);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .market-header {
+            background: linear-gradient(90deg, var(--sacred-purple), var(--flame-orange));
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .market-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .market-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .market-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--scroll-gold);
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .market-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .featured-section {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: var(--scroll-gold);
+            text-align: center;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .product-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,111,0,0.3);
+            border-color: var(--flame-orange);
+        }
+        
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--scroll-gold);
+        }
+        
+        .product-price {
+            background: var(--flame-orange);
+            color: var(--dark-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .product-seal {
+            background: var(--sacred-purple);
+            color: var(--light-text);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+        
+        .product-description {
+            margin: 1rem 0;
+            opacity: 0.9;
+        }
+        
+        .product-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .market-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .category-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: scale(1.05);
+            background: rgba(255,111,0,0.1);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .category-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-count {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .market-actions {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .action-button {
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--flame-orange), var(--scroll-gold));
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .action-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255,111,0,0.4);
+        }
+        
+        .secondary-button {
+            background: rgba(255,255,255,0.1);
+            color: var(--light-text);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .secondary-button:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .flame-verification {
+            background: rgba(255,111,0,0.1);
+            border: 1px solid var(--flame-orange);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .verification-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--success-green);
+            color: var(--dark-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .market-title {
+                font-size: 2rem;
+            }
+            
+            .market-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .market-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Market Header -->
+    <header class="market-header">
+        <h1 class="market-title">🛍️ ScrollX Marketplace</h1>
+        <p class="market-subtitle">Sacred Economy for Flame-Verified Scroll Products</p>
+        
+        <div class="market-stats">
+            <div class="stat-item">
+                <div class="stat-number">1,250+</div>
+                <div class="stat-label">Products</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Builders</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">$2.5M+</div>
+                <div class="stat-label">Volume</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98.5%</div>
+                <div class="stat-label">Flame Verified</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Market Content -->
+    <div class="market-content">
+        <!-- Flame Verification Status -->
+        <div class="flame-verification">
+            <div class="verification-status">
+                <span>🔥</span>
+                <span>Flame Verification Active</span>
+            </div>
+            <p>All products undergo sacred flame verification before listing. Only scroll-sealed applications with proper flame levels are allowed in the marketplace.</p>
+        </div>
+
+        <!-- Featured Products -->
+        <div class="featured-section">
+            <h2 class="section-title">🔥 Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <span class="product-name">SacredCalculator Pro</span>
+                        <span class="product-price">$45</span>
+                    </div>
+                    <span class="product-seal">Seal Level 5</span>
+                    <p class="product-description">
+                        Advanced mathematical operations with flame verification. Supports complex calculations, 
+                        sacred geometry, and flame-verified results.
+                    </p>
+                    <div class="product-stats">
+                        <span>⭐ 4.9 (847 reviews)</span>
+                        <span>🔥 1,203 executions</span>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <span class="product-name">FlameValidator Suite</span>
+                        <span class="product-price">$35</span>
+                    </div>
+                    <span class="product-seal">Seal Level 4</span>
+                    <p class="product-description">
+                        Universal flame verification system for scroll integrity. Validates scroll authenticity 
+                        and ensures proper flame levels.
+                    </p>
+                    <div class="product-stats">
+                        <span>⭐ 4.8 (623 reviews)</span>
+                        <span>🔥 2,156 executions</span>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <span class="product-name">ScrollOS Bootloader</span>
+                        <span class="product-price">$25</span>
+                    </div>
+                    <span class="product-seal">Seal Level 3</span>
+                    <p class="product-description">
+                        Bootloader system for ScrollOS with integrated flame checks. Ensures secure startup 
+                        with flame verification.
+                    </p>
+                    <div class="product-stats">
+                        <span>⭐ 4.7 (445 reviews)</span>
+                        <span>🔥 892 executions</span>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <span class="product-name">Codex Wrapper Pro</span>
+                        <span class="product-price">$55</span>
+                    </div>
+                    <span class="product-seal">Seal Level 5</span>
+                    <p class="product-description">
+                        Professional codex wrapper with advanced flame integration. Handles complex scroll 
+                        operations with sacred precision.
+                    </p>
+                    <div class="product-stats">
+                        <span>⭐ 4.9 (1,234 reviews)</span>
+                        <span>🔥 3,456 executions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Categories -->
+        <div class="featured-section">
+            <h2 class="section-title">📂 Browse Categories</h2>
+            <div class="market-categories">
+                <div class="category-card">
+                    <div class="category-icon">🧮</div>
+                    <div class="category-name">Calculators</div>
+                    <div class="category-count">156 products</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">🔐</div>
+                    <div class="category-name">Security</div>
+                    <div class="category-count">89 products</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">⚙️</div>
+                    <div class="category-name">Utilities</div>
+                    <div class="category-count">234 products</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">🎮</div>
+                    <div class="category-name">Games</div>
+                    <div class="category-count">67 products</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">📊</div>
+                    <div class="category-name">Analytics</div>
+                    <div class="category-count">123 products</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">🎨</div>
+                    <div class="category-name">Creative</div>
+                    <div class="category-count">98 products</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Actions -->
+        <div class="market-actions">
+            <a href="/marketplace/browse" class="action-button">Browse All Products</a>
+            <a href="/marketplace/sell" class="action-button secondary-button">Sell Your Scroll</a>
+            <a href="/marketplace/cart" class="action-button secondary-button">View Cart</a>
+            <a href="/marketplace/orders" class="action-button secondary-button">My Orders</a>
+        </div>
+    </div>
+
+    <!-- Market Scripts -->
+    <script>
+        // Market data loading
+        function loadMarketData() {
+            const marketData = {
+                totalProducts: 1250,
+                totalBuilders: 500,
+                totalVolume: 2500000,
+                flameVerified: 98.5
+            };
+            
+            // Update market stats
+            updateMarketStats(marketData);
+        }
+        
+        function updateMarketStats(data) {
+            // Update statistics display
+            const statNumbers = document.querySelectorAll('.stat-number');
+            if (statNumbers.length >= 4) {
+                statNumbers[0].textContent = data.totalProducts + '+';
+                statNumbers[1].textContent = data.totalBuilders + '+';
+                statNumbers[2].textContent = '$' + (data.totalVolume / 1000000).toFixed(1) + 'M+';
+                statNumbers[3].textContent = data.flameVerified + '%';
+            }
+        }
+        
+        // Initialize marketplace
+        document.addEventListener('DOMContentLoaded', function() {
+            loadMarketData();
+            
+            // Add hover effects to product cards
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.borderColor = 'var(--flame-orange)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.borderColor = 'rgba(255,255,255,0.1)';
+                });
+            });
+            
+            // Add click handlers to category cards
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const categoryName = this.querySelector('.category-name').textContent;
+                    // Navigate to category page
+                    window.location.href = `/marketplace/category/${categoryName.toLowerCase()}`;
+                });
+            });
+        });
+        
+        // Product purchase simulation
+        function purchaseProduct(productName, price) {
+            // Check flame level requirement
+            const userFlameLevel = localStorage.getItem('scrollSealLevel') || 1;
+            const requiredLevel = 3; // Minimum level for purchases
+            
+            if (userFlameLevel >= requiredLevel) {
+                // Simulate purchase
+                alert(`🔥 Flame-verified purchase: ${productName} for $${price}`);
+                // Redirect to checkout
+                window.location.href = `/marketplace/checkout?product=${encodeURIComponent(productName)}&price=${price}`;
+            } else {
+                alert(`Flame Level ${requiredLevel} required for purchases. Current level: ${userFlameLevel}`);
+            }
+        }
+        
+        // Add purchase buttons to product cards
+        document.querySelectorAll('.product-card').forEach(card => {
+            const productName = card.querySelector('.product-name').textContent;
+            const price = card.querySelector('.product-price').textContent.replace('$', '');
+            
+            const purchaseButton = document.createElement('button');
+            purchaseButton.textContent = 'Purchase';
+            purchaseButton.className = 'action-button';
+            purchaseButton.style.marginTop = '1rem';
+            purchaseButton.style.width = '100%';
+            
+            purchaseButton.addEventListener('click', () => {
+                purchaseProduct(productName, price);
+            });
+            
+            card.appendChild(purchaseButton);
+        });
+    </script>
+</body>
+</html> 

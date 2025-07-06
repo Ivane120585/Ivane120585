@@ -1,0 +1,544 @@
+---
+// ScrollVerse Portal — Builder Dashboard
+// Flame-Certified Builder Management Interface
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builder Dashboard — ScrollVerse Portal</title>
+    <meta name="description" content="Manage your scroll projects, track execution stats, and monitor flame level.">
+    
+    <!-- ScrollVerse Styling -->
+    <style>
+        :root {
+            --flame-orange: #FF6F00;
+            --sacred-purple: #4A148C;
+            --scroll-gold: #FFD700;
+            --dark-bg: #1A1A1A;
+            --light-text: #FFFFFF;
+            --success-green: #4CAF50;
+            --warning-yellow: #FF9800;
+            --error-red: #F44336;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'ScrollCode', 'Courier New', monospace;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--sacred-purple) 100%);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(90deg, var(--sacred-purple), var(--flame-orange));
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .builder-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .builder-profile {
+            text-align: left;
+        }
+        
+        .builder-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .builder-rank {
+            font-size: 1.2rem;
+            color: var(--scroll-gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .flame-stats {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--scroll-gold);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .dashboard-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .dashboard-section {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: var(--scroll-gold);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .project-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--flame-orange);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .project-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .project-seal {
+            background: var(--flame-orange);
+            color: var(--dark-bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .project-stat {
+            text-align: center;
+            background: rgba(255,255,255,0.05);
+            padding: 0.8rem;
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--scroll-gold);
+        }
+        
+        .stat-text {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .execution-chart {
+            height: 300px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .chart-placeholder {
+            text-align: center;
+            opacity: 0.7;
+        }
+        
+        .rank-progress {
+            margin-top: 1rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--flame-orange), var(--scroll-gold));
+            transition: width 0.3s ease;
+        }
+        
+        .rank-tiers {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .action-button {
+            padding: 1rem;
+            background: linear-gradient(45deg, var(--flame-orange), var(--scroll-gold));
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .action-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .recent-activity {
+            margin-top: 2rem;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .activity-icon {
+            font-size: 1.5rem;
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-time {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .builder-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .flame-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="builder-info">
+            <div class="builder-profile">
+                <h1 class="builder-name">ScrollBuilder #2471</h1>
+                <p class="builder-rank">🔥 Flame Keeper • Seal Level 4</p>
+                <p>Member since: January 2025</p>
+            </div>
+            <div class="flame-stats">
+                <div class="stat-item">
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">Seal Level</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Active Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">1,247</div>
+                    <div class="stat-label">Total Executions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">$2,450</div>
+                    <div class="stat-label">Revenue</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+        <div class="dashboard-grid">
+            <!-- Main Dashboard Section -->
+            <div class="dashboard-section">
+                <h2 class="section-title">📜 Active Scroll Projects</h2>
+                <div class="project-list">
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-name">SacredCalculator.scroll</span>
+                            <span class="project-seal">Seal Level 5</span>
+                        </div>
+                        <p>Advanced mathematical operations with flame verification</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="stat-number">847</div>
+                                <div class="stat-text">Executions</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="stat-number">$1,250</div>
+                                <div class="stat-text">Revenue</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="stat-number">4.8</div>
+                                <div class="stat-text">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-name">FlameValidator.scroll</span>
+                            <span class="project-seal">Seal Level 4</span>
+                        </div>
+                        <p>Universal flame verification system for scroll integrity</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="stat-number">1,203</div>
+                                <div class="stat-text">Executions</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="stat-number">$890</div>
+                                <div class="stat-text">Revenue</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="stat-number">4.9</div>
+                                <div class="stat-text">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-name">ScrollOS_Bootloader.scroll</span>
+                            <span class="project-seal">Seal Level 3</span>
+                        </div>
+                        <p>Bootloader system for ScrollOS with flame checks</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="stat-number">156</div>
+                                <div class="stat-text">Executions</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="stat-number">$310</div>
+                                <div class="stat-text">Revenue</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="stat-number">4.6</div>
+                                <div class="stat-text">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Section -->
+            <div class="dashboard-section">
+                <h2 class="section-title">🔥 Flame Progress</h2>
+                <div class="rank-progress">
+                    <p>Progress to Flame Master (Level 5)</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%;"></div>
+                    </div>
+                    <div class="rank-tiers">
+                        <span>Level 4</span>
+                        <span>Level 5</span>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">🎯 Next Milestones</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        ✅ 10+ Active Projects (12/10)
+                    </li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        ✅ 1,000+ Total Executions (1,247/1,000)
+                    </li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        ⏳ $5,000+ Total Revenue ($2,450/5,000)
+                    </li>
+                    <li style="padding: 0.5rem 0;">
+                        ⏳ 5+ Seal Level 5 Projects (1/5)
+                    </li>
+                </ul>
+                
+                <div class="quick-actions">
+                    <a href="/scrollide" class="action-button">Create New Scroll</a>
+                    <a href="/marketplace" class="action-button">Publish Project</a>
+                    <a href="/monetization" class="action-button">Setup Storefront</a>
+                    <a href="/scrollcoin" class="action-button">Check Wallet</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Execution Stats Section -->
+        <div class="dashboard-section">
+            <h2 class="section-title">📊 Execution Statistics</h2>
+            <div class="execution-chart">
+                <div class="chart-placeholder">
+                    <h3>Execution Trend (Last 30 Days)</h3>
+                    <p>📈 847 executions this month</p>
+                    <p>🔥 98.5% flame verification success rate</p>
+                    <p>💰 $2,450 revenue generated</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity Section -->
+        <div class="dashboard-section recent-activity">
+            <h2 class="section-title">⚡ Recent Activity</h2>
+            <div class="activity-item">
+                <div class="activity-icon">🔥</div>
+                <div class="activity-content">
+                    <strong>SacredCalculator.scroll</strong> executed successfully
+                    <div class="activity-time">2 minutes ago</div>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-icon">💰</div>
+                <div class="activity-content">
+                    <strong>Received payment</strong> of $45 for FlameValidator.scroll
+                    <div class="activity-time">15 minutes ago</div>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-icon">📜</div>
+                <div class="activity-content">
+                    <strong>ScrollOS_Bootloader.scroll</strong> seal level upgraded to 3
+                    <div class="activity-time">1 hour ago</div>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-icon">⭐</div>
+                <div class="activity-content">
+                    <strong>New 5-star rating</strong> for SacredCalculator.scroll
+                    <div class="activity-time">3 hours ago</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Scripts -->
+    <script>
+        // Load builder data from localStorage or API
+        function loadBuilderData() {
+            const builderData = {
+                id: '2471',
+                name: 'ScrollBuilder #2471',
+                rank: 'Flame Keeper',
+                sealLevel: 4,
+                projects: 12,
+                executions: 1247,
+                revenue: 2450,
+                progress: 75
+            };
+            
+            // Update UI with real data
+            updateDashboard(builderData);
+        }
+        
+        function updateDashboard(data) {
+            // Update flame stats
+            document.querySelector('.stat-value').textContent = data.sealLevel;
+            // Update other stats...
+        }
+        
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            loadBuilderData();
+            
+            // Add hover effects to project items
+            const projectItems = document.querySelectorAll('.project-item');
+            projectItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.borderLeftColor = 'var(--scroll-gold)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.borderLeftColor = 'var(--flame-orange)';
+                });
+            });
+        });
+        
+        // Real-time updates (simulated)
+        setInterval(() => {
+            // Update execution count
+            const executionStat = document.querySelector('.stat-value');
+            if (executionStat) {
+                const currentCount = parseInt(executionStat.textContent);
+                executionStat.textContent = currentCount + Math.floor(Math.random() * 3);
+            }
+        }, 30000); // Update every 30 seconds
+    </script>
+</body>
+</html> 

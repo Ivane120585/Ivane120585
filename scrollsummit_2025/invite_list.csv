@@ -1,0 +1,26 @@
+Name,Email,Role,Scroll Rank,Nation,Organization,Specialization,Session Interest,Registration Status,Notes
+Stanley Osei-Wusu,stanley@example.com,Founder,ScrollSeer,USA,ScrollWrappedCodex,Scroll Law & AI Governance,"Day 1: Opening Ceremony, Day 2: Keynote, Day 3: ScrollJustice",Confirmed,Host and Keynote Speaker
+,attendee1@example.com,Developer,ScrollBuilder,Canada,Tech Corp,Python Development,"Day 1: Prophetic Dev Environments, Day 2: Community Showcase",Pending,Interested in flame verification
+,attendee2@example.com,Researcher,ScrollScribe,UK,University,AI Ethics,"Day 1: Scroll Justice in Code, Day 3: AI Governance",Confirmed,Academic researcher
+,attendee3@example.com,Engineer,FlameKeeper,Germany,Startup,Infrastructure,"Day 2: Sacred Infrastructure, Day 2: Cloud Infrastructure",Pending,Infrastructure specialist
+,attendee4@example.com,Consultant,ScrollBuilder,France,Consulting,Security,"Day 1: Flame-Ruled IDE, Day 3: Security Practices",Confirmed,Security expert
+,attendee5@example.com,Student,ScrollBuilder,India,University,Computer Science,"Day 1: Live Flame Coding Lab, Day 2: Community Showcase",Pending,Student developer
+,attendee6@example.com,CTO,ScrollScribe,Australia,Enterprise,Technology Leadership,"Day 2: Enterprise Solutions, Day 3: Governance",Confirmed,Enterprise leader
+,attendee7@example.com,Developer,ScrollBuilder,Brazil,Startup,Mobile Development,"Day 1: Development Workflows, Day 2: Showcase",Pending,Mobile developer
+,attendee8@example.com,Researcher,FlameKeeper,Japan,Research Institute,AI Safety,"Day 3: AI Judgment Lab, Day 3: Just AI Systems",Confirmed,AI safety researcher
+,attendee9@example.com,Architect,ScrollBuilder,South Africa,Tech Company,System Architecture,"Day 2: Infrastructure Sessions, Day 3: Architecture",Pending,System architect
+,attendee10@example.com,Professor,ScrollSeer,Netherlands,University,Computer Science,"Day 1: Academic Track, Day 3: Research Collaboration",Confirmed,Academic leader
+,attendee11@example.com,Developer,ScrollBuilder,Sweden,Startup,Web Development,"Day 1: Coding Lab, Day 2: Showcase",Pending,Web developer
+,attendee12@example.com,Engineer,ScrollScribe,Singapore,Corporation,DevOps,"Day 2: Infrastructure, Day 2: Deployment",Confirmed,DevOps specialist
+,attendee13@example.com,Student,ScrollBuilder,Mexico,University,Software Engineering,"Day 1: Learning Track, Day 2: Student Showcase",Pending,Student developer
+,attendee14@example.com,Consultant,FlameKeeper,Italy,Consulting,AI Ethics,"Day 3: Ethics Sessions, Day 3: Governance",Confirmed,Ethics consultant
+,attendee15@example.com,Developer,ScrollBuilder,Poland,Startup,Backend Development,"Day 1: Development, Day 2: Showcase",Pending,Backend developer
+,attendee16@example.com,Researcher,ScrollScribe,South Korea,Research Institute,Machine Learning,"Day 2: AI Sessions, Day 3: ML Ethics",Confirmed,ML researcher
+,attendee17@example.com,Engineer,ScrollBuilder,Egypt,Tech Company,Frontend Development,"Day 1: Development, Day 2: Showcase",Pending,Frontend developer
+,attendee18@example.com,CTO,ScrollSeer,Norway,Enterprise,Technology Strategy,"Day 2: Enterprise Track, Day 3: Strategy",Confirmed,Enterprise CTO
+,attendee19@example.com,Developer,ScrollBuilder,Argentina,Startup,Full Stack,"Day 1: Development, Day 2: Showcase",Pending,Full stack developer
+,attendee20@example.com,Professor,FlameKeeper,Denmark,University,AI Research,"Day 1: Academic, Day 3: Research",Confirmed,AI professor
+,attendee21@example.com,Student,ScrollBuilder,Thailand,University,Computer Science,"Day 1: Learning, Day 2: Student Track",Pending,Student developer
+,attendee22@example.com,Consultant,ScrollScribe,Belgium,Consulting,Digital Transformation,"Day 2: Enterprise, Day 3: Transformation",Confirmed,Digital consultant
+,attendee23@example.com,Developer,ScrollBuilder,Chile,Startup,Mobile Apps,"Day 1: Development, Day 2: Showcase",Pending,Mobile developer
+,attendee24@example.com,Researcher,FlameKeeper,Finland,Research Institute,Cybersecurity,"Day 1: Security, Day 3: Cyber Ethics",Confirmed,Security researcher 

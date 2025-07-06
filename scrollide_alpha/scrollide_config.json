@@ -1,0 +1,149 @@
+{
+  "scrollide_version": "Alpha 1.0.0",
+  "flame_kernel_version": "🔥1.0.0",
+  "scroll_seal_level": 3,
+  "project_settings": {
+    "default_project_name": "sacred_project",
+    "auto_save_interval": 30,
+    "flame_verification_enabled": true,
+    "scroll_law_compliance": true,
+    "audit_trail_enabled": true,
+    "backup_enabled": true,
+    "cloud_sync_enabled": false
+  },
+  "role_settings": {
+    "builder": {
+      "permissions": ["read", "write", "execute"],
+      "flame_level": 1,
+      "features": ["basic_editor", "scroll_runner", "template_access"],
+      "restrictions": ["no_system_access", "no_network_admin"]
+    },
+    "scribe": {
+      "permissions": ["read", "write", "execute", "template_create"],
+      "flame_level": 2,
+      "features": ["advanced_editor", "scroll_runner", "template_creation", "community_share"],
+      "restrictions": ["no_system_admin", "no_flame_override"]
+    },
+    "flamekeeper": {
+      "permissions": ["read", "write", "execute", "verify", "authorize"],
+      "flame_level": 3,
+      "features": ["full_editor", "scroll_runner", "flame_verification", "security_audit", "plugin_development"],
+      "restrictions": ["no_root_access"]
+    },
+    "scrollseer": {
+      "permissions": ["read", "write", "execute", "verify", "authorize", "govern"],
+      "flame_level": 4,
+      "features": ["complete_access", "scroll_runner", "flame_verification", "law_interpretation", "system_governance"],
+      "restrictions": []
+    }
+  },
+  "editor_settings": {
+    "theme": "scroll_dark",
+    "font_family": "ScrollCode",
+    "font_size": 14,
+    "line_numbers": true,
+    "syntax_highlighting": true,
+    "auto_completion": true,
+    "flame_suggestions": true,
+    "scroll_law_validation": true
+  },
+  "scroll_runner_settings": {
+    "execution_mode": "flame_verified",
+    "timeout_seconds": 300,
+    "max_memory_mb": 512,
+    "network_access": false,
+    "file_system_access": "restricted",
+    "flame_verification_required": true,
+    "audit_logging": true
+  },
+  "template_settings": {
+    "default_templates": [
+      "basic_project.scroll",
+      "api_service.scroll",
+      "authentication.scroll",
+      "database.scroll",
+      "security.scroll"
+    ],
+    "community_templates_enabled": true,
+    "template_validation": true,
+    "flame_verification_required": true
+  },
+  "plugin_settings": {
+    "plugin_directory": "./plugins",
+    "auto_load_plugins": true,
+    "plugin_verification": true,
+    "flame_verification_required": true,
+    "available_plugins": [
+      "scroll_dashboard",
+      "scroll_validator",
+      "flame_monitor",
+      "template_manager",
+      "community_share"
+    ]
+  },
+  "security_settings": {
+    "flame_verification_levels": {
+      "level_1": "basic_verification",
+      "level_2": "enhanced_security",
+      "level_3": "advanced_authorization",
+      "level_4": "enterprise_security",
+      "level_5": "government_level"
+    },
+    "threat_detection": true,
+    "audit_trail": true,
+    "encryption_enabled": true,
+    "access_control": true
+  },
+  "community_settings": {
+    "discord_integration": true,
+    "github_integration": true,
+    "template_sharing": true,
+    "community_showcase": true,
+    "rank_advancement": true
+  },
+  "cloud_settings": {
+    "auto_backup": false,
+    "sync_enabled": false,
+    "cloud_storage": "local_only",
+    "encryption_required": true
+  },
+  "performance_settings": {
+    "auto_save_interval": 30,
+    "max_file_size_mb": 10,
+    "memory_limit_mb": 512,
+    "cpu_limit_percent": 50,
+    "network_timeout_seconds": 30
+  },
+  "ui_settings": {
+    "sidebar_enabled": true,
+    "status_bar_enabled": true,
+    "flame_indicator": true,
+    "scroll_law_display": true,
+    "rank_badge_display": true,
+    "theme_options": [
+      "scroll_dark",
+      "flame_light",
+      "sacred_purple",
+      "scroll_classic"
+    ]
+  },
+  "integration_settings": {
+    "scrollcodex_integration": true,
+    "scrollos_integration": true,
+    "scrollx_marketplace": true,
+    "seercircle_governance": true,
+    "api_endpoints": {
+      "scroll_runner": "http://localhost:8000/api/scroll",
+      "flame_verifier": "http://localhost:8000/api/flame",
+      "template_store": "http://localhost:8000/api/templates",
+      "community_hub": "http://localhost:8000/api/community"
+    }
+  },
+  "development_settings": {
+    "debug_mode": false,
+    "verbose_logging": false,
+    "flame_debug": false,
+    "performance_monitoring": true,
+    "error_reporting": true
+  }
+} 

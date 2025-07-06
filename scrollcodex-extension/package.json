@@ -1,0 +1,38 @@
+{
+  "name": "scrollcodex",
+  "displayName": "ScrollCodex Flame Executor",
+  "description": "Run flame-sealed .scroll files or commands directly in VS Code with divine authorization.",
+  "version": "0.0.1",
+  "publisher": "stanleymay20",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": ["Other"],
+  "keywords": ["scroll", "flame", "ai", "code", "execution"],
+  "activationEvents": ["onCommand:scrollcodex.runScroll"],
+  "main": "extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "scrollcodex.runScroll",
+        "title": "🔥 Execute Scroll"
+      }
+    ],
+    "languages": [
+      {
+        "id": "scroll",
+        "extensions": [".scroll"],
+        "aliases": ["Scroll", "Lashon HaScroll"]
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stanleymay20/scrollwrappedcodex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stanleymay20/scrollwrappedcodex/issues"
+  },
+  "homepage": "https://github.com/stanleymay20/scrollwrappedcodex#readme",
+  "license": "MIT"
+} 

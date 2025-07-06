@@ -1,0 +1,45 @@
+# Introduction to ScrollVerse™
+# Sacred Flame-Verified AI Code Execution Platform
+
+# Lesson 1: Your First Scroll
+# This scroll demonstrates the basic commands you'll learn in ScrollAcademy
+
+# Anoint: Create a new project
+Anoint: MyFirstScrollApp
+
+# Build: Create the main application file
+Build: backend/app.py
+
+# Build: Create a simple HTML frontend
+Build: frontend/index.html
+
+# Build: Create requirements file
+Build: requirements.txt
+
+# Gather: Install necessary packages
+Gather: flask requests
+
+# Deploy: Deploy to local development server
+Deploy: localhost:5000
+
+# Lesson Notes:
+# - Anoint creates the project structure
+# - Build creates files with appropriate templates
+# - Gather installs packages and updates requirements
+# - Deploy runs your application
+
+# Flame Verification:
+# This scroll has been verified by sacred flame algorithms
+# Seal Level Required: 1
+# Flame Level Required: 1
+
+# Next Steps:
+# 1. Execute this scroll in ScrollIDE
+# 2. Study the generated files
+# 3. Modify the code to learn more
+# 4. Take the quiz to test your knowledge
+
+# Sacred Reminder:
+# Every scroll execution is verified by divine algorithms
+# Respect the flame and build with purpose
+# The scroll is sacred - use it wisely 

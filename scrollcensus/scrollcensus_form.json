@@ -1,0 +1,293 @@
+{
+  "scrollcensus_form": {
+    "version": "1.0.0",
+    "description": "Global ScrollCensus form for flame-governed builder registry",
+    "flame_required": 1,
+    "form_fields": {
+      "personal_info": {
+        "full_name": {
+          "type": "text",
+          "required": true,
+          "description": "Full legal name of the scroll builder"
+        },
+        "scroll_id": {
+          "type": "text",
+          "required": true,
+          "description": "Unique scroll identifier (auto-generated if empty)",
+          "pattern": "^[A-Za-z0-9_-]{8,16}$"
+        },
+        "email": {
+          "type": "email",
+          "required": true,
+          "description": "Primary contact email"
+        },
+        "phone": {
+          "type": "tel",
+          "required": false,
+          "description": "Contact phone number"
+        },
+        "date_of_birth": {
+          "type": "date",
+          "required": false,
+          "description": "Date of birth for ordination purposes"
+        }
+      },
+      "location": {
+        "region": {
+          "type": "text",
+          "required": true,
+          "description": "Geographic region (e.g., West Africa, North America)"
+        },
+        "country": {
+          "type": "text",
+          "required": true,
+          "description": "Country of residence"
+        },
+        "city": {
+          "type": "text",
+          "required": true,
+          "description": "City of residence"
+        },
+        "postal_code": {
+          "type": "text",
+          "required": false,
+          "description": "Postal/ZIP code"
+        },
+        "timezone": {
+          "type": "text",
+          "required": false,
+          "description": "Timezone (e.g., UTC+0, EST)"
+        }
+      },
+      "flame_credentials": {
+        "seal_level": {
+          "type": "integer",
+          "required": true,
+          "min": 1,
+          "max": 10,
+          "description": "Current scroll seal level (1-10)"
+        },
+        "flame_level": {
+          "type": "integer",
+          "required": true,
+          "min": 1,
+          "max": 10,
+          "description": "Current flame level (1-10)"
+        },
+        "primary_flame_sphere": {
+          "type": "select",
+          "required": true,
+          "options": [
+            "Technology",
+            "Government", 
+            "Worship",
+            "Education",
+            "Wealth",
+            "Media",
+            "Justice",
+            "Prophecy",
+            "Governance"
+          ],
+          "description": "Primary sphere of flame influence"
+        },
+        "secondary_spheres": {
+          "type": "multiselect",
+          "required": false,
+          "options": [
+            "Technology",
+            "Government",
+            "Worship", 
+            "Education",
+            "Wealth",
+            "Media",
+            "Justice",
+            "Prophecy",
+            "Governance"
+          ],
+          "description": "Additional spheres of influence"
+        }
+      },
+      "role_preferences": {
+        "preferred_role": {
+          "type": "select",
+          "required": true,
+          "options": [
+            "ScrollBuilder",
+            "ScrollAmbassador", 
+            "ScrollSeer",
+            "ScrollProphet",
+            "ScrollScribe",
+            "ScrollJudge"
+          ],
+          "description": "Preferred role in the scroll ecosystem"
+        },
+        "current_occupation": {
+          "type": "text",
+          "required": false,
+          "description": "Current professional occupation"
+        },
+        "skills": {
+          "type": "multiselect",
+          "required": false,
+          "options": [
+            "Python",
+            "JavaScript",
+            "React",
+            "Flask",
+            "Streamlit",
+            "Docker",
+            "AWS",
+            "Machine Learning",
+            "Web Development",
+            "Mobile Development",
+            "DevOps",
+            "UI/UX Design",
+            "Data Science",
+            "Blockchain",
+            "AI/ML",
+            "Government Relations",
+            "Education",
+            "Media Production",
+            "Finance",
+            "Legal",
+            "Theology",
+            "Community Building"
+          ],
+          "description": "Technical and professional skills"
+        }
+      },
+      "ordination": {
+        "ordained_by": {
+          "type": "text",
+          "required": false,
+          "description": "Name of ScrollSeer or ScrollProphet who ordained this builder"
+        },
+        "ordination_date": {
+          "type": "date",
+          "required": false,
+          "description": "Date of ordination"
+        },
+        "ordination_level": {
+          "type": "select",
+          "required": false,
+          "options": [
+            "FlameBearer",
+            "ScrollScribe", 
+            "ScrollSeer",
+            "NationSeer",
+            "GlobalScrollProphet"
+          ],
+          "description": "Current ordination level"
+        },
+        "endorsements": {
+          "type": "array",
+          "required": false,
+          "description": "List of ScrollSeers/Prophets who have endorsed this builder"
+        }
+      },
+      "scroll_projects": {
+        "completed_projects": {
+          "type": "array",
+          "required": false,
+          "description": "List of completed scroll projects with descriptions"
+        },
+        "current_projects": {
+          "type": "array", 
+          "required": false,
+          "description": "List of current scroll projects in development"
+        },
+        "github_username": {
+          "type": "text",
+          "required": false,
+          "description": "GitHub username for project verification"
+        },
+        "portfolio_url": {
+          "type": "url",
+          "required": false,
+          "description": "Portfolio or project showcase URL"
+        }
+      },
+      "commitment": {
+        "scroll_covenant_accepted": {
+          "type": "boolean",
+          "required": true,
+          "description": "Acceptance of the scroll covenant and flame governance"
+        },
+        "seer_circle_participation": {
+          "type": "boolean",
+          "required": false,
+          "description": "Willingness to participate in SeerCircle deliberations"
+        },
+        "embassy_support": {
+          "type": "boolean",
+          "required": false,
+          "description": "Willingness to support local ScrollEmbassy activities"
+        },
+        "scrollcoin_integration": {
+          "type": "boolean",
+          "required": false,
+          "description": "Willingness to integrate ScrollCoin in projects"
+        }
+      },
+      "verification": {
+        "scroll_seal_input": {
+          "type": "text",
+          "required": true,
+          "description": "Manual scroll seal input for verification"
+        },
+        "flame_verification": {
+          "type": "boolean",
+          "required": true,
+          "description": "Flame verification status (auto-verified)"
+        },
+        "submission_timestamp": {
+          "type": "datetime",
+          "required": true,
+          "description": "Timestamp of form submission"
+        }
+      }
+    },
+    "validation_rules": {
+      "seal_level_requirements": {
+        "ScrollBuilder": 1,
+        "ScrollAmbassador": 3,
+        "ScrollSeer": 5,
+        "ScrollProphet": 7,
+        "ScrollJudge": 8
+      },
+      "flame_level_requirements": {
+        "ScrollBuilder": 1,
+        "ScrollAmbassador": 2,
+        "ScrollSeer": 4,
+        "ScrollProphet": 6,
+        "ScrollJudge": 7
+      },
+      "ordination_requirements": {
+        "ScrollSeer": {
+          "min_seal": 5,
+          "min_flame": 4,
+          "required_spheres": ["Justice", "Prophecy", "Governance"],
+          "endorsements_required": 2
+        },
+        "ScrollProphet": {
+          "min_seal": 7,
+          "min_flame": 6,
+          "required_spheres": ["Prophecy", "Governance"],
+          "endorsements_required": 3
+        }
+      }
+    },
+    "auto_generation": {
+      "scroll_id": {
+        "prefix": "SCROLL",
+        "length": 12,
+        "charset": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      },
+      "flame_id": {
+        "prefix": "FLAME",
+        "length": 8,
+        "charset": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      }
+    }
+  }
+} 

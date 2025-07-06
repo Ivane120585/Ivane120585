@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrollVerse™ - Sacred Flame-Verified AI Code Execution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .flame-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ffd23f);
+        }
+        .scroll-bg {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+        }
+        .flame-text {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .scroll-border {
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, #ff6b35, #f7931e) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+        }
+    </style>
+</head>
+<body class="scroll-bg text-white min-h-screen">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Auth Context
+        const AuthContext = React.createContext();
+
+        const AuthProvider = ({ children }) => {
+            const [user, setUser] = useState(null);
+            const [loading, setLoading] = useState(true);
+
+            useEffect(() => {
+                // Check for existing session
+                const token = localStorage.getItem('scrollverse_token');
+                if (token) {
+                    validateToken(token);
+                } else {
+                    setLoading(false);
+                }
+            }, []);
+
+            const validateToken = async (token) => {
+                try {
+                    const response = await fetch('/api/auth/validate', {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    if (response.ok) {
+                        const userData = await response.json();
+                        setUser(userData);
+                    } else {
+                        localStorage.removeItem('scrollverse_token');
+                    }
+                } catch (error) {
+                    console.error('Token validation failed:', error);
+                    localStorage.removeItem('scrollverse_token');
+                }
+                setLoading(false);
+            };
+
+            const login = async (credentials) => {
+                try {
+                    const response = await fetch('/api/auth/login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(credentials)
+                    });
+                    
+                    if (response.ok) {
+                        const { token, user: userData } = await response.json();
+                        localStorage.setItem('scrollverse_token', token);
+                        setUser(userData);
+                        return { success: true };
+                    } else {
+                        const error = await response.json();
+                        return { success: false, error: error.message };
+                    }
+                } catch (error) {
+                    return { success: false, error: 'Network error' };
+                }
+            };
+
+            const logout = () => {
+                localStorage.removeItem('scrollverse_token');
+                setUser(null);
+            };
+
+            return (
+                <AuthContext.Provider value={{ user, login, logout, loading }}>
+                    {children}
+                </AuthContext.Provider>
+            );
+        };
+
+        const useAuth = () => React.useContext(AuthContext);
+
+        // Login Component
+        const LoginForm = ({ onLogin }) => {
+            const [credentials, setCredentials] = useState({ email: '', password: '' });
+            const [loading, setLoading] = useState(false);
+            const [error, setError] = useState('');
+
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                setLoading(true);
+                setError('');
+
+                const result = await onLogin(credentials);
+                if (!result.success) {
+                    setError(result.error);
+                }
+                setLoading(false);
+            };
+
+            return (
+                <div className="max-w-md mx-auto mt-20 p-8 bg-gray-800 rounded-lg shadow-2xl">
+                    <div className="text-center mb-8">
+                        <h1 className="text-3xl font-bold flame-text">ScrollVerse™</h1>
+                        <p className="text-gray-400 mt-2">Sacred Flame-Verified AI Code Execution</p>
+                    </div>
+
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                        <div>
+                            <label className="block text-sm font-medium mb-2">Email</label>
+                            <input
+                                type="email"
+                                value={credentials.email}
+                                onChange={(e) => setCredentials({...credentials, email: e.target.value})}
+                                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-orange-500"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium mb-2">Password</label>
+                            <input
+                                type="password"
+                                value={credentials.password}
+                                onChange={(e) => setCredentials({...credentials, password: e.target.value})}
+                                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-orange-500"
+                                required
+                            />
+                        </div>
+
+                        {error && (
+                            <div className="text-red-400 text-sm">{error}</div>
+                        )}
+
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="w-full flame-gradient text-white font-bold py-3 px-4 rounded-lg hover:opacity-90 disabled:opacity-50"
+                        >
+                            {loading ? 'Authenticating...' : 'Enter the ScrollVerse'}
+                        </button>
+                    </form>
+
+                    <div className="mt-6 text-center">
+                        <a href="/register" className="text-orange-400 hover:text-orange-300">
+                            New to ScrollVerse? Register as a Builder
+                        </a>
+                    </div>
+                </div>
+            );
+        };
+
+        // Dashboard Component
+        const Dashboard = () => {
+            const { user, logout } = useAuth();
+            const [activeTab, setActiveTab] = useState('scrollide');
+
+            const tabs = [
+                { id: 'scrollide', name: 'ScrollIDE', icon: 'fas fa-code' },
+                { id: 'agent', name: 'ScrollAgent', icon: 'fas fa-robot' },
+                { id: 'census', name: 'Census', icon: 'fas fa-users' },
+                { id: 'store', name: 'ScrollX Store', icon: 'fas fa-store' },
+                { id: 'profile', name: 'Profile', icon: 'fas fa-user' }
+            ];
+
+            return (
+                <div className="min-h-screen bg-gray-900">
+                    {/* Header */}
+                    <header className="bg-gray-800 border-b border-gray-700">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex justify-between items-center py-4">
+                                <div className="flex items-center">
+                                    <h1 className="text-2xl font-bold flame-text">ScrollVerse™</h1>
+                                </div>
+                                
+                                <div className="flex items-center space-x-4">
+                                    <div className="text-sm">
+                                        <span className="text-gray-400">Seal Level:</span>
+                                        <span className="ml-2 text-orange-400 font-bold">{user?.seal_level || 0}</span>
+                                    </div>
+                                    <div className="text-sm">
+                                        <span className="text-gray-400">Flame Level:</span>
+                                        <span className="ml-2 text-orange-400 font-bold">{user?.flame_level || 0}</span>
+                                    </div>
+                                    <button
+                                        onClick={logout}
+                                        className="text-gray-400 hover:text-white"
+                                    >
+                                        <i className="fas fa-sign-out-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Navigation */}
+                    <nav className="bg-gray-800 border-b border-gray-700">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex space-x-8">
+                                {tabs.map((tab) => (
+                                    <button
+                                        key={tab.id}
+                                        onClick={() => setActiveTab(tab.id)}
+                                        className={`py-4 px-1 border-b-2 font-medium text-sm ${
+                                            activeTab === tab.id
+                                                ? 'border-orange-500 text-orange-400'
+                                                : 'border-transparent text-gray-400 hover:text-gray-300'
+                                        }`}
+                                    >
+                                        <i className={`${tab.icon} mr-2`}></i>
+                                        {tab.name}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* Content */}
+                    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        {activeTab === 'scrollide' && <ScrollIDE />}
+                        {activeTab === 'agent' && <ScrollAgent />}
+                        {activeTab === 'census' && <CensusForm />}
+                        {activeTab === 'store' && <ScrollXStore />}
+                        {activeTab === 'profile' && <UserProfile />}
+                    </main>
+                </div>
+            );
+        };
+
+        // ScrollIDE Component
+        const ScrollIDE = () => {
+            const [scrollCode, setScrollCode] = useState('');
+            const [output, setOutput] = useState('');
+            const [executing, setExecuting] = useState(false);
+
+            const executeScroll = async () => {
+                setExecuting(true);
+                setOutput('🔥 Executing scroll...\n');
+
+                try {
+                    const response = await fetch('/api/execute_scroll', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ scroll_code: scrollCode })
+                    });
+
+                    const result = await response.json();
+                    setOutput(prev => prev + result.output);
+                } catch (error) {
+                    setOutput(prev => prev + '❌ Execution failed: ' + error.message);
+                }
+
+                setExecuting(false);
+            };
+
+            return (
+                <div className="space-y-6">
+                    <div>
+                        <h2 className="text-2xl font-bold mb-4">ScrollIDE</h2>
+                        <p className="text-gray-400">Write and execute sacred scroll code</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div>
+                            <label className="block text-sm font-medium mb-2">Scroll Code</label>
+                            <textarea
+                                value={scrollCode}
+                                onChange={(e) => setScrollCode(e.target.value)}
+                                placeholder="Anoint: ScrollRadio&#10;Build: backend/app.py&#10;Gather: flask requests"
+                                className="w-full h-96 px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:border-orange-500 font-mono text-sm"
+                            />
+                            <button
+                                onClick={executeScroll}
+                                disabled={executing || !scrollCode.trim()}
+                                className="mt-4 flame-gradient text-white font-bold py-2 px-6 rounded-lg hover:opacity-90 disabled:opacity-50"
+                            >
+                                {executing ? 'Executing...' : 'Execute Scroll'}
+                            </button>
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium mb-2">Execution Output</label>
+                            <div className="w-full h-96 px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg font-mono text-sm overflow-y-auto">
+                                <pre className="whitespace-pre-wrap">{output || 'Output will appear here...'}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // ScrollAgent Component
+        const ScrollAgent = () => {
+            const [messages, setMessages] = useState([]);
+            const [input, setInput] = useState('');
+            const [loading, setLoading] = useState(false);
+
+            const sendMessage = async () => {
+                if (!input.trim()) return;
+
+                const userMessage = { role: 'user', content: input, timestamp: new Date() };
+                setMessages(prev => [...prev, userMessage]);
+                setInput('');
+                setLoading(true);
+
+                try {
+                    const response = await fetch('/api/agent/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: input })
+                    });
+
+                    const result = await response.json();
+                    const agentMessage = { role: 'assistant', content: result.response, timestamp: new Date() };
+                    setMessages(prev => [...prev, agentMessage]);
+                } catch (error) {
+                    const errorMessage = { role: 'assistant', content: '❌ Error: ' + error.message, timestamp: new Date() };
+                    setMessages(prev => [...prev, errorMessage]);
+                }
+
+                setLoading(false);
+            };
+
+            return (
+                <div className="space-y-6">
+                    <div>
+                        <h2 className="text-2xl font-bold mb-4">ScrollAgent</h2>
+                        <p className="text-gray-400">Sacred AI assistant for scroll development</p>
+                    </div>
+
+                    <div className="bg-gray-800 rounded-lg p-6">
+                        <div className="h-96 overflow-y-auto mb-4 space-y-4">
+                            {messages.map((msg, index) => (
+                                <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                                    <div className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                                        msg.role === 'user' 
+                                            ? 'bg-orange-600 text-white' 
+                                            : 'bg-gray-700 text-gray-200'
+                                    }`}>
+                                        {msg.content}
+                                    </div>
+                                </div>
+                            ))}
+                            {loading && (
+                                <div className="flex justify-start">
+                                    <div className="bg-gray-700 text-gray-200 px-4 py-2 rounded-lg">
+                                        <i className="fas fa-spinner fa-spin"></i> Thinking...
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="flex space-x-2">
+                            <input
+                                type="text"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                                placeholder="Ask the ScrollAgent..."
+                                className="flex-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-orange-500"
+                            />
+                            <button
+                                onClick={sendMessage}
+                                disabled={loading || !input.trim()}
+                                className="flame-gradient text-white px-6 py-2 rounded-lg hover:opacity-90 disabled:opacity-50"
+                            >
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // Census Form Component
+        const CensusForm = () => {
+            return (
+                <div className="space-y-6">
+                    <div>
+                        <h2 className="text-2xl font-bold mb-4">ScrollCensus</h2>
+                        <p className="text-gray-400">Register as a ScrollBuilder or Prophet</p>
+                    </div>
+
+                    <div className="bg-gray-800 rounded-lg p-6">
+                        <iframe
+                            src="/census"
+                            className="w-full h-96 border-0"
+                            title="ScrollCensus Form"
+                        />
+                    </div>
+                </div>
+            );
+        };
+
+        // ScrollX Store Component
+        const ScrollXStore = () => {
+            const [products, setProducts] = useState([]);
+            const [loading, setLoading] = useState(true);
+
+            useEffect(() => {
+                fetchProducts();
+            }, []);
+
+            const fetchProducts = async () => {
+                try {
+                    const response = await fetch('/api/store/products');
+                    const data = await response.json();
+                    setProducts(data.products);
+                } catch (error) {
+                    console.error('Failed to fetch products:', error);
+                }
+                setLoading(false);
+            };
+
+            return (
+                <div className="space-y-6">
+                    <div>
+                        <h2 className="text-2xl font-bold mb-4">ScrollX Store</h2>
+                        <p className="text-gray-400">Sacred scrolls and flame-verified tools</p>
+                    </div>
+
+                    {loading ? (
+                        <div className="text-center py-8">
+                            <i className="fas fa-spinner fa-spin text-2xl"></i>
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {products.map((product) => (
+                                <div key={product.id} className="bg-gray-800 rounded-lg p-6">
+                                    <h3 className="text-lg font-bold mb-2">{product.name}</h3>
+                                    <p className="text-gray-400 mb-4">{product.description}</p>
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-orange-400 font-bold">{product.price} ScrollCoin</span>
+                                        <button className="flame-gradient text-white px-4 py-2 rounded-lg hover:opacity-90">
+                                            Purchase
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        // User Profile Component
+        const UserProfile = () => {
+            const { user } = useAuth();
+
+            return (
+                <div className="space-y-6">
+                    <div>
+                        <h2 className="text-2xl font-bold mb-4">Profile</h2>
+                        <p className="text-gray-400">Your ScrollVerse builder profile</p>
+                    </div>
+
+                    <div className="bg-gray-800 rounded-lg p-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 className="text-lg font-bold mb-4">Builder Information</h3>
+                                <div className="space-y-3">
+                                    <div>
+                                        <span className="text-gray-400">Name:</span>
+                                        <span className="ml-2">{user?.name || 'Unknown'}</span>
+                                    </div>
+                                    <div>
+                                        <span className="text-gray-400">Scroll ID:</span>
+                                        <span className="ml-2">{user?.scroll_id || 'Unknown'}</span>
+                                    </div>
+                                    <div>
+                                        <span className="text-gray-400">Role:</span>
+                                        <span className="ml-2">{user?.role || 'Builder'}</span>
+                                    </div>
+                                    <div>
+                                        <span className="text-gray-400">Primary Sphere:</span>
+                                        <span className="ml-2">{user?.primary_sphere || 'Technology'}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 className="text-lg font-bold mb-4">Flame Statistics</h3>
+                                <div className="space-y-3">
+                                    <div>
+                                        <span className="text-gray-400">Seal Level:</span>
+                                        <span className="ml-2 text-orange-400 font-bold">{user?.seal_level || 0}</span>
+                                    </div>
+                                    <div>
+                                        <span className="text-gray-400">Flame Level:</span>
+                                        <span className="ml-2 text-orange-400 font-bold">{user?.flame_level || 0}</span>
+                                    </div>
+                                    <div>
+                                        <span className="text-gray-400">Scrolls Executed:</span>
+                                        <span className="ml-2">{user?.scrolls_executed || 0}</span>
+                                    </div>
+                                    <div>
+                                        <span className="text-gray-400">ScrollCoin Balance:</span>
+                                        <span className="ml-2 text-green-400">{user?.scrollcoin_balance || 0}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // Main App Component
+        const App = () => {
+            const { user, loading } = useAuth();
+
+            if (loading) {
+                return (
+                    <div className="min-h-screen scroll-bg flex items-center justify-center">
+                        <div className="text-center">
+                            <i className="fas fa-fire text-4xl text-orange-400 mb-4"></i>
+                            <p className="text-xl">Initializing ScrollVerse...</p>
+                        </div>
+                    </div>
+                );
+            }
+
+            return user ? <Dashboard /> : <LoginForm onLogin={useAuth().login} />;
+        };
+
+        // Render App
+        ReactDOM.render(
+            <AuthProvider>
+                <App />
+            </AuthProvider>,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+</html> 

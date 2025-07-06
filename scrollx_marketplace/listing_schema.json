@@ -1,0 +1,302 @@
+{
+  "scrollx_marketplace_schema": {
+    "version": "1.0.0",
+    "description": "Schema for ScrollX marketplace listings",
+    "required_fields": [
+      "name",
+      "author", 
+      "scroll_seal",
+      "price_type",
+      "source_link"
+    ],
+    "fields": {
+      "name": {
+        "type": "string",
+        "description": "Name of the scroll product",
+        "max_length": 100,
+        "pattern": "^[a-zA-Z0-9\\s\\-_\\.]+$"
+      },
+      "author": {
+        "type": "string", 
+        "description": "Author/creator of the scroll product",
+        "max_length": 50,
+        "pattern": "^[a-zA-Z0-9\\s\\-_\\.]+$"
+      },
+      "scroll_seal": {
+        "type": "object",
+        "description": "Scroll seal verification details",
+        "properties": {
+          "level": {
+            "type": "integer",
+            "description": "ScrollSeal level (1-5)",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "verified": {
+            "type": "boolean",
+            "description": "Whether the scroll has been flame-verified"
+          },
+          "verification_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date when scroll was verified"
+          },
+          "verifier": {
+            "type": "string",
+            "description": "Name of the flame verifier"
+          }
+        },
+        "required": ["level", "verified"]
+      },
+      "price_type": {
+        "type": "string",
+        "enum": ["free", "donation", "paid", "subscription"],
+        "description": "Pricing model for the scroll product"
+      },
+      "price": {
+        "type": "object",
+        "description": "Price details (required if price_type is not free)",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "description": "Price amount",
+            "minimum": 0
+          },
+          "currency": {
+            "type": "string",
+            "enum": ["USD", "EUR", "GBP", "SCROLL"],
+            "description": "Currency for the price"
+          },
+          "subscription_period": {
+            "type": "string",
+            "enum": ["monthly", "yearly", "lifetime"],
+            "description": "Subscription period (if applicable)"
+          }
+        }
+      },
+      "source_link": {
+        "type": "string",
+        "format": "uri",
+        "description": "Link to the scroll source code or documentation"
+      },
+      "description": {
+        "type": "string",
+        "description": "Detailed description of the scroll product",
+        "max_length": 1000
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "api",
+          "authentication", 
+          "database",
+          "security",
+          "network",
+          "utility",
+          "template",
+          "framework",
+          "tool",
+          "other"
+        ],
+        "description": "Category of the scroll product"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Tags for categorizing the scroll product",
+        "max_items": 10
+      },
+      "version": {
+        "type": "string",
+        "description": "Version of the scroll product",
+        "pattern": "^\\d+\\.\\d+\\.\\d+$"
+      },
+      "compatibility": {
+        "type": "object",
+        "description": "Compatibility information",
+        "properties": {
+          "scrollos_min_version": {
+            "type": "string",
+            "description": "Minimum ScrollOS version required"
+          },
+          "scrollide_min_version": {
+            "type": "string", 
+            "description": "Minimum ScrollIDE version required"
+          },
+          "python_version": {
+            "type": "string",
+            "description": "Required Python version"
+          }
+        }
+      },
+      "downloads": {
+        "type": "integer",
+        "description": "Number of downloads",
+        "minimum": 0
+      },
+      "rating": {
+        "type": "object",
+        "description": "User rating information",
+        "properties": {
+          "average": {
+            "type": "number",
+            "description": "Average rating (1-5)",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "count": {
+            "type": "integer",
+            "description": "Number of ratings",
+            "minimum": 0
+          }
+        }
+      },
+      "created_date": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Date when the listing was created"
+      },
+      "updated_date": {
+        "type": "string",
+        "format": "date-time", 
+        "description": "Date when the listing was last updated"
+      },
+      "status": {
+        "type": "string",
+        "enum": ["active", "inactive", "pending", "rejected"],
+        "description": "Status of the listing"
+      },
+      "featured": {
+        "type": "boolean",
+        "description": "Whether the listing is featured"
+      },
+      "premium": {
+        "type": "boolean",
+        "description": "Whether this is a premium listing"
+      },
+      "screenshots": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "format": "uri"
+        },
+        "description": "Screenshots of the scroll product",
+        "max_items": 5
+      },
+      "documentation": {
+        "type": "string",
+        "format": "uri",
+        "description": "Link to documentation"
+      },
+      "support": {
+        "type": "object",
+        "description": "Support information",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Support email"
+          },
+          "discord": {
+            "type": "string",
+            "description": "Discord support channel"
+          },
+          "github": {
+            "type": "string",
+            "format": "uri",
+            "description": "GitHub repository for issues"
+          }
+        }
+      },
+      "license": {
+        "type": "string",
+        "description": "License type for the scroll product"
+      },
+      "dependencies": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of dependencies required"
+      },
+      "size": {
+        "type": "integer",
+        "description": "Size of the scroll product in bytes",
+        "minimum": 0
+      },
+      "checksum": {
+        "type": "string",
+        "description": "SHA256 checksum of the scroll product",
+        "pattern": "^[a-fA-F0-9]{64}$"
+      }
+    },
+    "validation_rules": {
+      "free_products": {
+        "description": "Free products must have price_type 'free'",
+        "condition": "price_type == 'free'"
+      },
+      "paid_products": {
+        "description": "Paid products must have price object",
+        "condition": "price_type != 'free' && price != null"
+      },
+      "verified_products": {
+        "description": "All products must be flame-verified",
+        "condition": "scroll_seal.verified == true"
+      },
+      "valid_links": {
+        "description": "Source link must be valid URL",
+        "condition": "source_link matches URI pattern"
+      }
+    },
+    "example": {
+      "name": "ScrollJusticeAPI",
+      "author": "ScrollBuilder",
+      "scroll_seal": {
+        "level": 4,
+        "verified": true,
+        "verification_date": "2024-01-15T10:30:00Z",
+        "verifier": "FlameKeeper"
+      },
+      "price_type": "donation",
+      "price": {
+        "amount": 5.00,
+        "currency": "USD"
+      },
+      "source_link": "https://github.com/scrollbuilder/scrolljustice-api",
+      "description": "A flame-verified API for justice system integration with scroll law compliance",
+      "category": "api",
+      "tags": ["justice", "api", "compliance", "security"],
+      "version": "1.0.0",
+      "compatibility": {
+        "scrollos_min_version": "Alpha 1.0.0",
+        "scrollide_min_version": "Alpha 1.0.0"
+      },
+      "downloads": 150,
+      "rating": {
+        "average": 4.8,
+        "count": 25
+      },
+      "created_date": "2024-01-10T08:00:00Z",
+      "updated_date": "2024-01-15T10:30:00Z",
+      "status": "active",
+      "featured": true,
+      "premium": false,
+      "screenshots": [
+        "https://scrollx.com/screenshots/scrolljustice-api-1.png",
+        "https://scrollx.com/screenshots/scrolljustice-api-2.png"
+      ],
+      "documentation": "https://docs.scrollx.com/scrolljustice-api",
+      "support": {
+        "email": "support@scrollbuilder.com",
+        "discord": "#scrolljustice-support",
+        "github": "https://github.com/scrollbuilder/scrolljustice-api/issues"
+      },
+      "license": "Scroll License Agreement",
+      "dependencies": ["scrollcore", "flame-verifier"],
+      "size": 2048576,
+      "checksum": "a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef1234"
+    }
+  }
+} 

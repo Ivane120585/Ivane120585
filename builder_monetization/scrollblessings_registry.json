@@ -1,0 +1,310 @@
+{
+  "scrollblessings_registry": {
+    "version": "1.0.0",
+    "description": "Registry for tracking scroll reuse and royalty distribution",
+    "flame_required": 2,
+    "last_updated": "2025-01-15T14:30:00Z",
+    "total_scrolls_registered": 1250,
+    "total_royalties_paid": 8750.50,
+    "active_authors": 450
+  },
+  "registry_schema": {
+    "scroll_id": {
+      "type": "string",
+      "format": "scroll_####_####_####",
+      "description": "Unique scroll identifier",
+      "example": "scroll_abcd_efgh_ijkl"
+    },
+    "original_author": {
+      "type": "string",
+      "format": "scrollbuilder_####",
+      "description": "Original scroll author",
+      "example": "scrollbuilder_2471"
+    },
+    "scroll_name": {
+      "type": "string",
+      "description": "Name of the scroll",
+      "example": "SacredCalculator Pro"
+    },
+    "scroll_version": {
+      "type": "string",
+      "description": "Version of the scroll",
+      "example": "1.2.0"
+    },
+    "seal_level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Scroll seal level",
+      "example": 5
+    },
+    "flame_level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Author flame level",
+      "example": 4
+    },
+    "royalty_percentage": {
+      "type": "number",
+      "precision": 2,
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Royalty percentage for original author",
+      "example": 15.00,
+      "default": 15.00
+    },
+    "registration_date": {
+      "type": "string",
+      "format": "iso8601",
+      "description": "Date scroll was registered",
+      "example": "2025-01-15T14:30:00Z"
+    },
+    "reuse_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of times scroll has been reused",
+      "example": 47,
+      "default": 0
+    },
+    "total_reuse_revenue": {
+      "type": "number",
+      "precision": 2,
+      "minimum": 0,
+      "description": "Total revenue from scroll reuse",
+      "example": 2350.00,
+      "default": 0
+    },
+    "total_royalties_paid": {
+      "type": "number",
+      "precision": 2,
+      "minimum": 0,
+      "description": "Total royalties paid to original author",
+      "example": 352.50,
+      "default": 0
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "inactive", "suspended", "archived"],
+      "description": "Registration status",
+      "example": "active",
+      "default": "active"
+    }
+  },
+  "registered_scrolls": [
+    {
+      "scroll_id": "scroll_abcd_efgh_ijkl",
+      "original_author": "scrollbuilder_2471",
+      "scroll_name": "SacredCalculator Pro",
+      "scroll_version": "1.2.0",
+      "seal_level": 5,
+      "flame_level": 4,
+      "royalty_percentage": 15.00,
+      "registration_date": "2025-01-01T00:00:00Z",
+      "reuse_count": 47,
+      "total_reuse_revenue": 2350.00,
+      "total_royalties_paid": 352.50,
+      "status": "active"
+    },
+    {
+      "scroll_id": "scroll_mnop_qrst_uvwx",
+      "original_author": "scrollbuilder_1567",
+      "scroll_name": "FlameValidator Suite",
+      "scroll_version": "2.1.0",
+      "seal_level": 4,
+      "flame_level": 3,
+      "royalty_percentage": 15.00,
+      "registration_date": "2025-01-05T10:15:00Z",
+      "reuse_count": 23,
+      "total_reuse_revenue": 1150.00,
+      "total_royalties_paid": 172.50,
+      "status": "active"
+    },
+    {
+      "scroll_id": "scroll_yzab_cdef_ghij",
+      "original_author": "scrollbuilder_8923",
+      "scroll_name": "ScrollOS Bootloader",
+      "scroll_version": "1.0.5",
+      "seal_level": 3,
+      "flame_level": 4,
+      "royalty_percentage": 15.00,
+      "registration_date": "2025-01-10T14:20:00Z",
+      "reuse_count": 12,
+      "total_reuse_revenue": 600.00,
+      "total_royalties_paid": 90.00,
+      "status": "active"
+    },
+    {
+      "scroll_id": "scroll_klmn_opqr_stuv",
+      "original_author": "scrollbuilder_4456",
+      "scroll_name": "Codex Wrapper Pro",
+      "scroll_version": "3.0.0",
+      "seal_level": 5,
+      "flame_level": 5,
+      "royalty_percentage": 20.00,
+      "registration_date": "2025-01-12T09:30:00Z",
+      "reuse_count": 89,
+      "total_reuse_revenue": 4450.00,
+      "total_royalties_paid": 890.00,
+      "status": "active"
+    },
+    {
+      "scroll_id": "scroll_wxyz_abcd_efgh",
+      "original_author": "scrollbuilder_7789",
+      "scroll_name": "Flame Integration Module",
+      "scroll_version": "1.1.0",
+      "seal_level": 4,
+      "flame_level": 3,
+      "royalty_percentage": 15.00,
+      "registration_date": "2025-01-14T16:45:00Z",
+      "reuse_count": 34,
+      "total_reuse_revenue": 1700.00,
+      "total_royalties_paid": 255.00,
+      "status": "active"
+    }
+  ],
+  "reuse_transactions": [
+    {
+      "transaction_id": "reuse_txn_001",
+      "scroll_id": "scroll_abcd_efgh_ijkl",
+      "reuser_id": "scrollbuilder_1567",
+      "reuse_date": "2025-01-15T14:30:00Z",
+      "reuse_price": 50.00,
+      "royalty_amount": 7.50,
+      "original_author": "scrollbuilder_2471",
+      "flame_verified": true,
+      "status": "completed"
+    },
+    {
+      "transaction_id": "reuse_txn_002",
+      "scroll_id": "scroll_mnop_qrst_uvwx",
+      "reuser_id": "scrollbuilder_8923",
+      "reuse_date": "2025-01-15T14:25:00Z",
+      "reuse_price": 35.00,
+      "royalty_amount": 5.25,
+      "original_author": "scrollbuilder_1567",
+      "flame_verified": true,
+      "status": "completed"
+    },
+    {
+      "transaction_id": "reuse_txn_003",
+      "scroll_id": "scroll_yzab_cdef_ghij",
+      "reuser_id": "scrollbuilder_4456",
+      "reuse_date": "2025-01-15T14:20:00Z",
+      "reuse_price": 25.00,
+      "royalty_amount": 3.75,
+      "original_author": "scrollbuilder_8923",
+      "flame_verified": true,
+      "status": "completed"
+    },
+    {
+      "transaction_id": "reuse_txn_004",
+      "scroll_id": "scroll_klmn_opqr_stuv",
+      "reuser_id": "scrollbuilder_7789",
+      "reuse_date": "2025-01-15T14:15:00Z",
+      "reuse_price": 55.00,
+      "royalty_amount": 11.00,
+      "original_author": "scrollbuilder_4456",
+      "flame_verified": true,
+      "status": "completed"
+    },
+    {
+      "transaction_id": "reuse_txn_005",
+      "scroll_id": "scroll_wxyz_abcd_efgh",
+      "reuser_id": "scrollbuilder_2471",
+      "reuse_date": "2025-01-15T14:10:00Z",
+      "reuse_price": 40.00,
+      "royalty_amount": 6.00,
+      "original_author": "scrollbuilder_7789",
+      "flame_verified": true,
+      "status": "completed"
+    }
+  ],
+  "author_statistics": {
+    "scrollbuilder_2471": {
+      "total_scrolls": 12,
+      "total_reuse_revenue": 2350.00,
+      "total_royalties_earned": 352.50,
+      "average_royalty_percentage": 15.00,
+      "most_reused_scroll": "SacredCalculator Pro",
+      "flame_level": 4,
+      "seal_level": 4
+    },
+    "scrollbuilder_1567": {
+      "total_scrolls": 8,
+      "total_reuse_revenue": 1150.00,
+      "total_royalties_earned": 172.50,
+      "average_royalty_percentage": 15.00,
+      "most_reused_scroll": "FlameValidator Suite",
+      "flame_level": 3,
+      "seal_level": 3
+    },
+    "scrollbuilder_8923": {
+      "total_scrolls": 15,
+      "total_reuse_revenue": 600.00,
+      "total_royalties_earned": 90.00,
+      "average_royalty_percentage": 15.00,
+      "most_reused_scroll": "ScrollOS Bootloader",
+      "flame_level": 4,
+      "seal_level": 3
+    },
+    "scrollbuilder_4456": {
+      "total_scrolls": 6,
+      "total_reuse_revenue": 4450.00,
+      "total_royalties_earned": 890.00,
+      "average_royalty_percentage": 20.00,
+      "most_reused_scroll": "Codex Wrapper Pro",
+      "flame_level": 5,
+      "seal_level": 5
+    },
+    "scrollbuilder_7789": {
+      "total_scrolls": 10,
+      "total_reuse_revenue": 1700.00,
+      "total_royalties_earned": 255.00,
+      "average_royalty_percentage": 15.00,
+      "most_reused_scroll": "Flame Integration Module",
+      "flame_level": 3,
+      "seal_level": 4
+    }
+  },
+  "royalty_rules": {
+    "default_percentage": 15.00,
+    "premium_percentage": 20.00,
+    "minimum_royalty": 1.00,
+    "maximum_royalty": 50.00,
+    "flame_level_boost": {
+      "level_5": 5.00,
+      "level_4": 3.00,
+      "level_3": 2.00,
+      "level_2": 1.00,
+      "level_1": 0.00
+    },
+    "seal_level_boost": {
+      "level_5": 5.00,
+      "level_4": 3.00,
+      "level_3": 2.00,
+      "level_2": 1.00,
+      "level_1": 0.00
+    }
+  },
+  "royalty_calculation": {
+    "base_percentage": 15.00,
+    "flame_boost": "Based on author flame level",
+    "seal_boost": "Based on scroll seal level",
+    "premium_bonus": "5% for premium scrolls",
+    "formula": "Base + Flame Boost + Seal Boost + Premium Bonus"
+  },
+  "verification_requirements": {
+    "flame_verification": true,
+    "seal_level_validation": true,
+    "author_consent": true,
+    "reuse_permission": true,
+    "quality_check": true
+  },
+  "dispute_resolution": {
+    "mediation": "SeerCircle Council",
+    "appeal_process": "Sacred appeal system",
+    "arbitration": "Flame-verified arbitration",
+    "penalties": "Suspension or ban for violations"
+  }
+} 

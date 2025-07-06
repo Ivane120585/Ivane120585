@@ -1,0 +1,230 @@
+{
+  "scrollx_donation_tiers": {
+    "version": "1.0.0",
+    "description": "Donation tiers for ScrollX marketplace with ScrollCoin and Stripe funding",
+    "tiers": {
+      "scroll_supporter": {
+        "name": "Scroll Supporter",
+        "amount": {
+          "usd": 5.00,
+          "scrollcoin": 50
+        },
+        "benefits": [
+          "ScrollX supporter badge",
+          "Early access to new features",
+          "Community recognition",
+          "Monthly newsletter"
+        ],
+        "description": "Support the ScrollX marketplace and help build the sacred development economy"
+      },
+      "flame_guardian": {
+        "name": "Flame Guardian",
+        "amount": {
+          "usd": 15.00,
+          "scrollcoin": 150
+        },
+        "benefits": [
+          "Flame Guardian badge",
+          "Priority support",
+          "Exclusive Discord role",
+          "Beta access to new products",
+          "Quarterly community calls"
+        ],
+        "description": "Guard the flame of sacred development with enhanced community benefits"
+      },
+      "sacred_scribe": {
+        "name": "Sacred Scribe",
+        "amount": {
+          "usd": 25.00,
+          "scrollcoin": 250
+        },
+        "benefits": [
+          "Sacred Scribe badge",
+          "Premium marketplace features",
+          "Advanced analytics access",
+          "Direct developer support",
+          "Exclusive scroll templates",
+          "Bi-monthly community events"
+        ],
+        "description": "Scribe the sacred scrolls with premium marketplace access and exclusive content"
+      },
+      "scroll_master": {
+        "name": "Scroll Master",
+        "amount": {
+          "usd": 50.00,
+          "scrollcoin": 500
+        },
+        "benefits": [
+          "Scroll Master badge",
+          "All premium features",
+          "Custom scroll development",
+          "Priority product verification",
+          "Exclusive workshops",
+          "Direct platform influence",
+          "Annual community summit access"
+        ],
+        "description": "Master the sacred scrolls with comprehensive platform access and influence"
+      },
+      "flame_sovereign": {
+        "name": "Flame Sovereign",
+        "amount": {
+          "usd": 100.00,
+          "scrollcoin": 1000
+        },
+        "benefits": [
+          "Flame Sovereign badge",
+          "Complete platform access",
+          "Custom marketplace features",
+          "Direct platform development input",
+          "Exclusive scroll law training",
+          "Private community access",
+          "Annual retreat invitation",
+          "Platform governance voting rights"
+        ],
+        "description": "Sovereign of the sacred flame with ultimate platform access and governance"
+      }
+    },
+    "payment_methods": {
+      "stripe": {
+        "enabled": true,
+        "currencies": ["USD", "EUR", "GBP"],
+        "processing_fee": "2.9% + $0.30",
+        "features": [
+          "Secure payment processing",
+          "Automatic recurring donations",
+          "Tax receipt generation",
+          "Multiple currency support"
+        ]
+      },
+      "scrollcoin": {
+        "enabled": true,
+        "blockchain": "ScrollChain",
+        "transaction_fee": "0.1 SCROLL",
+        "features": [
+          "Decentralized payments",
+          "Instant transactions",
+          "Community governance",
+          "Staking rewards"
+        ]
+      }
+    },
+    "recurring_options": {
+      "monthly": {
+        "discount": "10%",
+        "description": "Monthly recurring donations with 10% discount"
+      },
+      "quarterly": {
+        "discount": "15%",
+        "description": "Quarterly recurring donations with 15% discount"
+      },
+      "annual": {
+        "discount": "25%",
+        "description": "Annual recurring donations with 25% discount"
+      }
+    },
+    "fund_allocation": {
+      "platform_development": "40%",
+      "community_events": "25%",
+      "developer_support": "20%",
+      "infrastructure": "10%",
+      "governance": "5%"
+    },
+    "impact_metrics": {
+      "scroll_products_verified": "1,250+",
+      "developers_supported": "500+",
+      "community_members": "2,500+",
+      "flame_verifications": "5,000+",
+      "scroll_law_compliance": "100%"
+    },
+    "governance": {
+      "donor_voting": true,
+      "proposal_submission": "Flame Sovereign tier",
+      "community_decisions": "All tiers",
+      "platform_direction": "Scroll Master+ tiers"
+    },
+    "transparency": {
+      "financial_reports": "Quarterly",
+      "impact_reports": "Monthly",
+      "governance_decisions": "Public",
+      "audit_trail": "Blockchain-verified"
+    },
+    "example_donations": {
+      "scroll_supporter_monthly": {
+        "tier": "Scroll Supporter",
+        "frequency": "monthly",
+        "amount_usd": 4.50,
+        "amount_scrollcoin": 45,
+        "total_annual_usd": 54.00,
+        "total_annual_scrollcoin": 540
+      },
+      "flame_guardian_annual": {
+        "tier": "Flame Guardian",
+        "frequency": "annual",
+        "amount_usd": 127.50,
+        "amount_scrollcoin": 1275,
+        "savings_usd": 52.50,
+        "savings_scrollcoin": 525
+      },
+      "sacred_scribe_quarterly": {
+        "tier": "Sacred Scribe",
+        "frequency": "quarterly",
+        "amount_usd": 21.25,
+        "amount_scrollcoin": 212.5,
+        "total_annual_usd": 85.00,
+        "total_annual_scrollcoin": 850
+      }
+    },
+    "community_benefits": {
+      "scroll_supporter": {
+        "discord_access": "Basic",
+        "newsletter": "Monthly",
+        "events": "Public only",
+        "support": "Community"
+      },
+      "flame_guardian": {
+        "discord_access": "Enhanced",
+        "newsletter": "Weekly",
+        "events": "Priority access",
+        "support": "Priority"
+      },
+      "sacred_scribe": {
+        "discord_access": "Premium",
+        "newsletter": "Weekly + exclusive",
+        "events": "Exclusive access",
+        "support": "Direct"
+      },
+      "scroll_master": {
+        "discord_access": "Master",
+        "newsletter": "Daily + exclusive",
+        "events": "All access",
+        "support": "Dedicated"
+      },
+      "flame_sovereign": {
+        "discord_access": "Sovereign",
+        "newsletter": "All newsletters",
+        "events": "All access + private",
+        "support": "24/7 dedicated"
+      }
+    },
+    "impact_stories": {
+      "platform_development": [
+        "ScrollIDE Alpha development funded by donations",
+        "ScrollOS ISO build pipeline created",
+        "ScrollX marketplace infrastructure built",
+        "Flame verification system enhanced"
+      ],
+      "community_events": [
+        "International Scroll Summit 2025",
+        "Monthly community hackathons",
+        "Quarterly developer workshops",
+        "Annual flame verification training"
+      ],
+      "developer_support": [
+        "500+ developers trained in scroll law",
+        "1,250+ products flame-verified",
+        "Community mentorship program",
+        "Developer grant program"
+      ]
+    }
+  }
+} 

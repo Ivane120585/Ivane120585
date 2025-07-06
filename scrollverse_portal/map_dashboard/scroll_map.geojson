@@ -1,0 +1,483 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollEmbassy North America",
+        "type": "embassy",
+        "seal_level": 5,
+        "builders": 6,
+        "seers": 2,
+        "location": "New York, USA",
+        "coordinates": [-74.006, 40.7128],
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.006, 40.7128]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollEmbassy Europe",
+        "type": "embassy",
+        "seal_level": 6,
+        "builders": 6,
+        "seers": 4,
+        "location": "London, UK",
+        "coordinates": [-0.1276, 51.5074],
+        "flame_zone": "Prophecy",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1276, 51.5074]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollEmbassy Asia",
+        "type": "embassy",
+        "seal_level": 4,
+        "builders": 5,
+        "seers": 0,
+        "location": "Tokyo, Japan",
+        "coordinates": [139.6917, 35.6895],
+        "flame_zone": "Governance",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [139.6917, 35.6895]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollEmbassy South America",
+        "type": "embassy",
+        "seal_level": 3,
+        "builders": 4,
+        "seers": 0,
+        "location": "São Paulo, Brazil",
+        "coordinates": [-46.6333, -23.5505],
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.6333, -23.5505]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollEmbassy West Africa",
+        "type": "embassy",
+        "seal_level": 5,
+        "builders": 2,
+        "seers": 1,
+        "location": "Lagos, Nigeria",
+        "coordinates": [3.3792, 6.5244],
+        "flame_zone": "Prophecy",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [3.3792, 6.5244]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollEmbassy East Africa",
+        "type": "embassy",
+        "seal_level": 2,
+        "builders": 1,
+        "seers": 0,
+        "location": "Nairobi, Kenya",
+        "coordinates": [36.8172, -1.2921],
+        "flame_zone": "Governance",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [36.8172, -1.2921]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity New York",
+        "type": "city",
+        "builders": ["John ScrollBuilder", "Emma ScrollSeer", "Michael ScrollBuilder"],
+        "seers": ["Emma ScrollSeer", "Charlotte ScrollSeer"],
+        "location": "New York, USA",
+        "coordinates": [-74.006, 40.7128],
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.006, 40.7128]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity London",
+        "type": "city",
+        "builders": ["Sarah ScrollSeer", "David ScrollProphet", "Isabella ScrollSeer"],
+        "seers": ["Sarah ScrollSeer", "Isabella ScrollSeer", "Emma ScrollSeer", "Maria ScrollSeer"],
+        "location": "London, UK",
+        "coordinates": [-0.1276, 51.5074],
+        "flame_zone": "Prophecy",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1276, 51.5074]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Tokyo",
+        "type": "city",
+        "builders": ["Ava ScrollSeer", "Charlotte ScrollSeer", "Sophia ScrollBuilder", "Mia ScrollBuilder", "Luna ScrollBuilder"],
+        "seers": ["Ava ScrollSeer", "Charlotte ScrollSeer"],
+        "location": "Tokyo, Japan",
+        "coordinates": [139.6917, 35.6895],
+        "flame_zone": "Governance",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [139.6917, 35.6895]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity São Paulo",
+        "type": "city",
+        "builders": ["Ethan ScrollBuilder", "Olivia ScrollBuilder", "Noah ScrollBuilder", "Aria ScrollBuilder"],
+        "seers": [],
+        "location": "São Paulo, Brazil",
+        "coordinates": [-46.6333, -23.5505],
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.6333, -23.5505]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Lagos",
+        "type": "city",
+        "builders": ["Sarah ScrollSeer", "Liam ScrollBuilder"],
+        "seers": ["Sarah ScrollSeer"],
+        "location": "Lagos, Nigeria",
+        "coordinates": [3.3792, 6.5244],
+        "flame_zone": "Prophecy",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [3.3792, 6.5244]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Nairobi",
+        "type": "city",
+        "builders": ["Lucas ScrollBuilder"],
+        "seers": [],
+        "location": "Nairobi, Kenya",
+        "coordinates": [36.8172, -1.2921],
+        "flame_zone": "Governance",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [36.8172, -1.2921]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Los Angeles",
+        "type": "city",
+        "builders": ["William ScrollBuilder", "Sofia ScrollBuilder", "James ScrollBuilder"],
+        "seers": [],
+        "location": "Los Angeles, USA",
+        "coordinates": [-118.2437, 34.0522],
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-118.2437, 34.0522]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Toronto",
+        "type": "city",
+        "builders": ["Benjamin ScrollBuilder", "Harper ScrollBuilder"],
+        "seers": [],
+        "location": "Toronto, Canada",
+        "coordinates": [-79.3832, 43.6532],
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.3832, 43.6532]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Paris",
+        "type": "city",
+        "builders": ["Maria ScrollSeer", "Isabella ScrollSeer"],
+        "seers": ["Maria ScrollSeer", "Isabella ScrollSeer"],
+        "location": "Paris, France",
+        "coordinates": [2.3522, 48.8566],
+        "flame_zone": "Prophecy",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.3522, 48.8566]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Berlin",
+        "type": "city",
+        "builders": ["Emma ScrollSeer"],
+        "seers": ["Emma ScrollSeer"],
+        "location": "Berlin, Germany",
+        "coordinates": [13.4050, 52.5200],
+        "flame_zone": "Prophecy",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [13.4050, 52.5200]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Madrid",
+        "type": "city",
+        "builders": ["Ava ScrollSeer"],
+        "seers": ["Ava ScrollSeer"],
+        "location": "Madrid, Spain",
+        "coordinates": [-3.7038, 40.4168],
+        "flame_zone": "Prophecy",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-3.7038, 40.4168]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Beijing",
+        "type": "city",
+        "builders": ["Charlotte ScrollSeer", "Mia ScrollBuilder"],
+        "seers": ["Charlotte ScrollSeer"],
+        "location": "Beijing, China",
+        "coordinates": [116.4074, 39.9042],
+        "flame_zone": "Governance",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.4074, 39.9042]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Seoul",
+        "type": "city",
+        "builders": ["Sophia ScrollBuilder", "Luna ScrollBuilder"],
+        "seers": [],
+        "location": "Seoul, South Korea",
+        "coordinates": [127.0243, 37.5665],
+        "flame_zone": "Governance",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [127.0243, 37.5665]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Singapore",
+        "type": "city",
+        "builders": ["Noah ScrollBuilder"],
+        "seers": [],
+        "location": "Singapore",
+        "coordinates": [103.8198, 1.3521],
+        "flame_zone": "Governance",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.8198, 1.3521]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Buenos Aires",
+        "type": "city",
+        "builders": ["Ethan ScrollBuilder", "Olivia ScrollBuilder"],
+        "seers": [],
+        "location": "Buenos Aires, Argentina",
+        "coordinates": [-58.3816, -34.6037],
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.3816, -34.6037]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Mexico City",
+        "type": "city",
+        "builders": ["Aria ScrollBuilder"],
+        "seers": [],
+        "location": "Mexico City, Mexico",
+        "coordinates": [-99.1332, 19.4326],
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-99.1332, 19.4326]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Accra",
+        "type": "city",
+        "builders": ["Liam ScrollBuilder"],
+        "seers": [],
+        "location": "Accra, Ghana",
+        "coordinates": [-0.1869, 5.5600],
+        "flame_zone": "Prophecy",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1869, 5.5600]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Cairo",
+        "type": "city",
+        "builders": ["Lucas ScrollBuilder"],
+        "seers": [],
+        "location": "Cairo, Egypt",
+        "coordinates": [31.2357, 30.0444],
+        "flame_zone": "Governance",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [31.2357, 30.0444]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Sydney",
+        "type": "city",
+        "builders": ["William ScrollBuilder", "Sofia ScrollBuilder"],
+        "seers": [],
+        "location": "Sydney, Australia",
+        "coordinates": [151.2093, -33.8688],
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [151.2093, -33.8688]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Melbourne",
+        "type": "city",
+        "builders": ["James ScrollBuilder", "Benjamin ScrollBuilder"],
+        "seers": [],
+        "location": "Melbourne, Australia",
+        "coordinates": [144.9631, -37.8136],
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [144.9631, -37.8136]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ScrollCity Vancouver",
+        "type": "city",
+        "builders": ["Harper ScrollBuilder"],
+        "seers": [],
+        "location": "Vancouver, Canada",
+        "coordinates": [-123.1207, 49.2827],
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-123.1207, 49.2827]
+      }
+    }
+  ],
+  "metadata": {
+    "total_embassies": 6,
+    "total_cities": 24,
+    "total_builders": 24,
+    "total_seers": 6,
+    "flame_zones": {
+      "Justice": 10,
+      "Prophecy": 8,
+      "Governance": 6
+    },
+    "last_updated": "2024-12-19T00:00:00Z",
+    "version": "1.0.0"
+  }
+} 

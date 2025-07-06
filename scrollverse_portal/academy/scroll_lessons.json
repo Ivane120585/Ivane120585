@@ -1,0 +1,444 @@
+{
+  "scroll_academy": {
+    "version": "1.0.0",
+    "description": "Sacred Scroll Academy Curriculum",
+    "total_lessons": 12,
+    "total_quizzes": 8,
+    "flame_verification_required": true,
+    "curriculum": {
+      "fundamentals": {
+        "title": "Scroll Fundamentals",
+        "description": "Essential knowledge for all ScrollBuilders",
+        "lessons": [
+          {
+            "id": "fund-001",
+            "title": "Introduction to ScrollVerse",
+            "description": "Understanding the sacred flame-verified platform",
+            "duration_minutes": 30,
+            "difficulty": "beginner",
+            "seal_level_required": 1,
+            "flame_level_required": 1,
+            "content": {
+              "sections": [
+                {
+                  "title": "What is ScrollVerse?",
+                  "content": "ScrollVerse™ is a sacred flame-verified AI code execution platform that combines divine governance with modern technology.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "The Sacred Flame",
+                  "content": "Every scroll execution is verified by sacred flame algorithms that ensure code integrity, security, and divine approval.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "ScrollLaw",
+                  "content": "ScrollLaw is the foundational governance system that ensures all technology serves humanity under prophetic guidance.",
+                  "flame_verification": true
+                }
+              ]
+            },
+            "quiz_id": "quiz-fund-001",
+            "scroll_practice": "intro_to_scroll.scroll"
+          },
+          {
+            "id": "fund-002",
+            "title": "Understanding Seal Levels",
+            "description": "Learn about the sacred seal level system",
+            "duration_minutes": 45,
+            "difficulty": "beginner",
+            "seal_level_required": 1,
+            "flame_level_required": 1,
+            "content": {
+              "sections": [
+                {
+                  "title": "Seal Level 1-2: ScrollBuilder",
+                  "content": "Basic access for creating and executing scrolls. Can participate in marketplace and community.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Seal Level 3-4: ScrollAmbassador",
+                  "content": "Diplomatic access for representing ScrollVerse in trade and relations.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Seal Level 5-6: ScrollSeer",
+                  "content": "Prophetic access for validating and ordaining new builders.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Seal Level 7+: ScrollProphet",
+                  "content": "Divine access for providing strategic guidance and governance.",
+                  "flame_verification": true
+                }
+              ]
+            },
+            "quiz_id": "quiz-fund-002",
+            "scroll_practice": "seal_levels.scroll"
+          }
+        ]
+      },
+      "scroll_commands": {
+        "title": "Sacred Scroll Commands",
+        "description": "Master the fundamental scroll commands",
+        "lessons": [
+          {
+            "id": "cmd-001",
+            "title": "The Anoint Command",
+            "description": "Learn to create new projects with the Anoint command",
+            "duration_minutes": 40,
+            "difficulty": "beginner",
+            "seal_level_required": 1,
+            "flame_level_required": 1,
+            "content": {
+              "sections": [
+                {
+                  "title": "Anoint: Project Creation",
+                  "content": "The Anoint command creates new projects and applications. Syntax: 'Anoint: ProjectName'",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Project Structure",
+                  "content": "Anoint creates a complete project structure with backend, frontend, and documentation folders.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Flame Verification",
+                  "content": "All Anoint commands are verified by sacred flame algorithms before execution.",
+                  "flame_verification": true
+                }
+              ]
+            },
+            "quiz_id": "quiz-cmd-001",
+            "scroll_practice": "anoint_practice.scroll"
+          },
+          {
+            "id": "cmd-002",
+            "title": "The Build Command",
+            "description": "Create files and code structures with the Build command",
+            "duration_minutes": 50,
+            "difficulty": "beginner",
+            "seal_level_required": 1,
+            "flame_level_required": 1,
+            "content": {
+              "sections": [
+                {
+                  "title": "Build: File Creation",
+                  "content": "The Build command creates files and code structures. Syntax: 'Build: path/to/file.ext'",
+                  "flame_verification": true
+                },
+                {
+                  "title": "File Templates",
+                  "content": "Build uses intelligent templates based on file extensions to create appropriate code.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Directory Structure",
+                  "content": "Build automatically creates necessary directories and maintains proper project structure.",
+                  "flame_verification": true
+                }
+              ]
+            },
+            "quiz_id": "quiz-cmd-002",
+            "scroll_practice": "build_practice.scroll"
+          },
+          {
+            "id": "cmd-003",
+            "title": "The Gather Command",
+            "description": "Install packages and dependencies with the Gather command",
+            "duration_minutes": 35,
+            "difficulty": "beginner",
+            "seal_level_required": 1,
+            "flame_level_required": 1,
+            "content": {
+              "sections": [
+                {
+                  "title": "Gather: Package Installation",
+                  "content": "The Gather command installs packages and dependencies. Syntax: 'Gather: package1 package2'",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Requirements Management",
+                  "content": "Gather automatically updates requirements.txt and manages dependency versions.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Security Verification",
+                  "content": "All packages are verified for security and compatibility before installation.",
+                  "flame_verification": true
+                }
+              ]
+            },
+            "quiz_id": "quiz-cmd-003",
+            "scroll_practice": "gather_practice.scroll"
+          },
+          {
+            "id": "cmd-004",
+            "title": "The Deploy Command",
+            "description": "Deploy applications with the Deploy command",
+            "duration_minutes": 45,
+            "difficulty": "intermediate",
+            "seal_level_required": 2,
+            "flame_level_required": 2,
+            "content": {
+              "sections": [
+                {
+                  "title": "Deploy: Application Deployment",
+                  "content": "The Deploy command deploys applications to specified targets. Syntax: 'Deploy: target'",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Deployment Targets",
+                  "content": "Supports various deployment targets including localhost, cloud platforms, and custom servers.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Flame Verification",
+                  "content": "All deployments are verified for security and compliance before execution.",
+                  "flame_verification": true
+                }
+              ]
+            },
+            "quiz_id": "quiz-cmd-004",
+            "scroll_practice": "deploy_practice.scroll"
+          }
+        ]
+      },
+      "advanced_topics": {
+        "title": "Advanced Scroll Development",
+        "description": "Advanced techniques for experienced builders",
+        "lessons": [
+          {
+            "id": "adv-001",
+            "title": "AI Agent Generation",
+            "description": "Create intelligent AI agents with scroll commands",
+            "duration_minutes": 60,
+            "difficulty": "intermediate",
+            "seal_level_required": 3,
+            "flame_level_required": 3,
+            "content": {
+              "sections": [
+                {
+                  "title": "Agent Architecture",
+                  "content": "Learn to design and implement AI agents using scroll commands and natural language.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "ScrollAgent Integration",
+                  "content": "Integrate with ScrollAgent for intelligent code generation and assistance.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Flame Verification",
+                  "content": "All AI agents are verified for safety and ethical compliance.",
+                  "flame_verification": true
+                }
+              ]
+            },
+            "quiz_id": "quiz-adv-001",
+            "scroll_practice": "ai_agent.scroll"
+          },
+          {
+            "id": "adv-002",
+            "title": "ScrollCoin Integration",
+            "description": "Integrate ScrollCoin economy into your applications",
+            "duration_minutes": 50,
+            "difficulty": "intermediate",
+            "seal_level_required": 3,
+            "flame_level_required": 3,
+            "content": {
+              "sections": [
+                {
+                  "title": "ScrollCoin Basics",
+                  "content": "Learn about ScrollCoin, the sacred digital currency of ScrollVerse.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Payment Integration",
+                  "content": "Integrate ScrollCoin payments into your applications and marketplaces.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Economic Governance",
+                  "content": "Understand the economic governance system and contribution rewards.",
+                  "flame_verification": true
+                }
+              ]
+            },
+            "quiz_id": "quiz-adv-002",
+            "scroll_practice": "scrollcoin_integration.scroll"
+          }
+        ]
+      },
+      "governance": {
+        "title": "Sacred Governance",
+        "description": "Understanding ScrollLaw and prophetic governance",
+        "lessons": [
+          {
+            "id": "gov-001",
+            "title": "Introduction to ScrollLaw",
+            "description": "Learn the foundational laws of ScrollVerse",
+            "duration_minutes": 45,
+            "difficulty": "intermediate",
+            "seal_level_required": 2,
+            "flame_level_required": 2,
+            "content": {
+              "sections": [
+                {
+                  "title": "ScrollLaw Principles",
+                  "content": "Understanding the core principles of ScrollLaw and sacred governance.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Compliance Requirements",
+                  "content": "Learn about compliance requirements and enforcement mechanisms.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Dispute Resolution",
+                  "content": "Understanding the dispute resolution process and ScrollJudge system.",
+                  "flame_verification": true
+                }
+              ]
+            },
+            "quiz_id": "quiz-gov-001",
+            "scroll_practice": "scrolllaw_practice.scroll"
+          },
+          {
+            "id": "gov-002",
+            "title": "Seer Ordination Process",
+            "description": "Understanding the path to becoming a ScrollSeer",
+            "duration_minutes": 60,
+            "difficulty": "advanced",
+            "seal_level_required": 4,
+            "flame_level_required": 4,
+            "content": {
+              "sections": [
+                {
+                  "title": "Eligibility Requirements",
+                  "content": "Learn about the requirements for Seer ordination and advancement.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Ordination Process",
+                  "content": "Understanding the sacred ordination process and SeerCircle approval.",
+                  "flame_verification": true
+                },
+                {
+                  "title": "Seer Duties",
+                  "content": "Learn about the responsibilities and duties of ScrollSeers.",
+                  "flame_verification": true
+                }
+              ]
+            },
+            "quiz_id": "quiz-gov-002",
+            "scroll_practice": "seer_ordination.scroll"
+          }
+        ]
+      }
+    },
+    "quizzes": {
+      "quiz-fund-001": {
+        "title": "ScrollVerse Fundamentals Quiz",
+        "description": "Test your understanding of ScrollVerse basics",
+        "questions": [
+          {
+            "id": "q1",
+            "question": "What is the primary purpose of ScrollVerse?",
+            "options": [
+              "To create social media platforms",
+              "To provide sacred flame-verified AI code execution",
+              "To sell cryptocurrency",
+              "To build video games"
+            ],
+            "correct_answer": 1,
+            "explanation": "ScrollVerse™ is a sacred flame-verified AI code execution platform that combines divine governance with modern technology."
+          },
+          {
+            "id": "q2",
+            "question": "What verifies every scroll execution?",
+            "options": [
+              "Human reviewers",
+              "Sacred flame algorithms",
+              "Random number generators",
+              "External APIs"
+            ],
+            "correct_answer": 1,
+            "explanation": "Every scroll execution is verified by sacred flame algorithms that ensure code integrity, security, and divine approval."
+          }
+        ],
+        "passing_score": 80,
+        "flame_verification": true
+      },
+      "quiz-fund-002": {
+        "title": "Seal Levels Quiz",
+        "description": "Test your knowledge of the seal level system",
+        "questions": [
+          {
+            "id": "q1",
+            "question": "What seal level is required for basic scroll execution?",
+            "options": [
+              "Seal Level 5",
+              "Seal Level 1",
+              "Seal Level 7",
+              "Seal Level 3"
+            ],
+            "correct_answer": 1,
+            "explanation": "Seal Level 1-2 provides basic access for creating and executing scrolls."
+          },
+          {
+            "id": "q2",
+            "question": "What seal level is required for Seer functions?",
+            "options": [
+              "Seal Level 3-4",
+              "Seal Level 5-6",
+              "Seal Level 7+",
+              "Seal Level 1-2"
+            ],
+            "correct_answer": 1,
+            "explanation": "Seal Level 5-6 provides prophetic access for validating and ordaining new builders."
+          }
+        ],
+        "passing_score": 80,
+        "flame_verification": true
+      }
+    },
+    "certifications": {
+      "scroll_builder_basic": {
+        "title": "ScrollBuilder Basic Certification",
+        "description": "Certification for basic scroll development",
+        "requirements": [
+          "Complete all fundamental lessons",
+          "Pass all fundamental quizzes",
+          "Execute 5 practice scrolls",
+          "Maintain Seal Level 1+"
+        ],
+        "flame_verification": true
+      },
+      "scroll_builder_advanced": {
+        "title": "ScrollBuilder Advanced Certification",
+        "description": "Certification for advanced scroll development",
+        "requirements": [
+          "Complete all advanced lessons",
+          "Pass all advanced quizzes",
+          "Execute 20 practice scrolls",
+          "Maintain Seal Level 3+",
+          "Seer endorsement"
+        ],
+        "flame_verification": true
+      },
+      "scroll_seer_candidate": {
+        "title": "ScrollSeer Candidate Certification",
+        "description": "Certification for Seer ordination candidates",
+        "requirements": [
+          "Complete all governance lessons",
+          "Pass all governance quizzes",
+          "Execute 50 practice scrolls",
+          "Maintain Seal Level 5+",
+          "Flame Level 4+",
+          "Prophet endorsement"
+        ],
+        "flame_verification": true
+      }
+    }
+  }
+} 

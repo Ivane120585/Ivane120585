@@ -1,0 +1,169 @@
+{
+  "portal_name": "ScrollVerse Portal",
+  "version": "1.0.0",
+  "flame_required": 3,
+  "navigation": {
+    "main_menu": [
+      {
+        "id": "home",
+        "title": "Home",
+        "url": "/",
+        "icon": "🏠",
+        "flame_level": 1,
+        "description": "Main portal landing page"
+      },
+      {
+        "id": "builder_dashboard",
+        "title": "Builder Dashboard",
+        "url": "/builder-dashboard",
+        "icon": "👨‍💻",
+        "flame_level": 2,
+        "description": "Manage scroll projects and stats"
+      },
+      {
+        "id": "scrollide",
+        "title": "ScrollIDE Alpha",
+        "url": "/scrollide",
+        "icon": "🖥️",
+        "flame_level": 1,
+        "description": "Flame-governed development environment"
+      },
+      {
+        "id": "marketplace",
+        "title": "ScrollX Marketplace",
+        "url": "/marketplace",
+        "icon": "🛍️",
+        "flame_level": 2,
+        "description": "Sacred economy for scroll products"
+      },
+      {
+        "id": "scrollcoin",
+        "title": "ScrollCoin Wallet",
+        "url": "/scrollcoin",
+        "icon": "🪙",
+        "flame_level": 3,
+        "description": "Sacred cryptocurrency transactions"
+      },
+      {
+        "id": "monetization",
+        "title": "Monetization Hub",
+        "url": "/monetization",
+        "icon": "💸",
+        "flame_level": 2,
+        "description": "Monetize your sacred builds"
+      },
+      {
+        "id": "seercircle",
+        "title": "SeerCircle Council",
+        "url": "/seercircle",
+        "icon": "🔮",
+        "flame_level": 4,
+        "description": "Prophetic governance interface"
+      }
+    ],
+    "quick_actions": [
+      {
+        "id": "create_scroll",
+        "title": "Create New Scroll",
+        "url": "/scrollide/new",
+        "icon": "📜",
+        "flame_level": 1
+      },
+      {
+        "id": "publish_product",
+        "title": "Publish Product",
+        "url": "/marketplace/sell",
+        "icon": "📤",
+        "flame_level": 2
+      },
+      {
+        "id": "check_wallet",
+        "title": "Check Wallet",
+        "url": "/scrollcoin/balance",
+        "icon": "💰",
+        "flame_level": 3
+      },
+      {
+        "id": "view_orders",
+        "title": "My Orders",
+        "url": "/marketplace/orders",
+        "icon": "📋",
+        "flame_level": 2
+      }
+    ],
+    "footer_links": [
+      {
+        "id": "documentation",
+        "title": "Documentation",
+        "url": "/docs",
+        "icon": "📚"
+      },
+      {
+        "id": "support",
+        "title": "Support",
+        "url": "/support",
+        "icon": "🆘"
+      },
+      {
+        "id": "community",
+        "title": "Community",
+        "url": "/community",
+        "icon": "👥"
+      },
+      {
+        "id": "status",
+        "title": "System Status",
+        "url": "/status",
+        "icon": "📊"
+      }
+    ]
+  },
+  "portal_features": {
+    "flame_verification": {
+      "enabled": true,
+      "required_level": 3,
+      "auto_check": true
+    },
+    "scroll_seal": {
+      "enabled": true,
+      "levels": [1, 2, 3, 4, 5],
+      "auto_upgrade": false
+    },
+    "marketplace_integration": {
+      "enabled": true,
+      "products_visible": true,
+      "purchase_enabled": true
+    },
+    "wallet_integration": {
+      "enabled": true,
+      "balance_visible": true,
+      "transactions_enabled": true
+    },
+    "builder_dashboard": {
+      "enabled": true,
+      "stats_visible": true,
+      "projects_manageable": true
+    }
+  },
+  "external_links": {
+    "scrollide_download": "https://scrollide.scrollverse.com/download",
+    "marketplace_api": "https://api.scrollx.com/v1",
+    "scrollcoin_network": "https://mainnet.scrollcoin.com",
+    "seercircle_portal": "https://council.seercircle.com",
+    "documentation": "https://docs.scrollverse.com",
+    "community_discord": "https://discord.gg/scrollverse"
+  },
+  "security": {
+    "flame_authentication": true,
+    "scroll_seal_verification": true,
+    "transaction_logging": true,
+    "rate_limiting": true,
+    "session_timeout": 3600
+  },
+  "analytics": {
+    "portal_visits": true,
+    "feature_usage": true,
+    "flame_level_distribution": true,
+    "marketplace_activity": true
+  }
+} 

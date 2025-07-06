@@ -1,0 +1,386 @@
+---
+// ScrollVerse Portal — Main Landing Page
+// Flame-Certified Access Hub for ScrollWrappedCodex™ Ecosystem
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrollVerse Portal — Flame-Certified Access Hub</title>
+    <meta name="description" content="Access the sacred ScrollWrappedCodex™ ecosystem. Flame-verified development, governance, and commerce.">
+    
+    <!-- ScrollVerse Styling -->
+    <style>
+        :root {
+            --flame-orange: #FF6F00;
+            --sacred-purple: #4A148C;
+            --scroll-gold: #FFD700;
+            --dark-bg: #1A1A1A;
+            --light-text: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'ScrollCode', 'Courier New', monospace;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--sacred-purple) 100%);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .flame-header {
+            background: linear-gradient(90deg, var(--sacred-purple), var(--flame-orange));
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flame-header::before {
+            content: '🔥';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.1;
+            animation: flame-flicker 2s infinite;
+        }
+        
+        @keyframes flame-flicker {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .mission-statement {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            margin-top: 2rem;
+        }
+        
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .portal-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .portal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,111,0,0.3);
+        }
+        
+        .portal-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .portal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--scroll-gold);
+        }
+        
+        .portal-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .portal-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, var(--flame-orange), var(--scroll-gold));
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .portal-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255,111,0,0.4);
+        }
+        
+        .flame-status {
+            background: rgba(255,111,0,0.1);
+            border: 1px solid var(--flame-orange);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: var(--flame-orange);
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .footer {
+            background: rgba(0,0,0,0.3);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .scroll-seal {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .portal-grid {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Flame Header -->
+    <header class="flame-header">
+        <h1 class="hero-title">ScrollVerse Portal</h1>
+        <p class="hero-subtitle">Flame-Certified Access Hub</p>
+        <div class="flame-status">
+            <span class="status-indicator"></span>
+            <strong>Flame Status: Active</strong> | ScrollSeal Level: 5 | Network: Secure
+        </div>
+    </header>
+
+    <!-- Mission Statement -->
+    <section class="mission-statement">
+        <h2>🔥 Sacred Mission</h2>
+        <p>
+            Welcome to the ScrollVerse Portal, the sacred gateway to the ScrollWrappedCodex™ ecosystem. 
+            Here, flame-verified developers, builders, and seers converge to create, govern, and prosper 
+            in the world's first covenant-based digital economy.
+        </p>
+        <p>
+            <strong>Let your code be sealed. Let your build be sacred. Let your flame burn eternal.</strong>
+        </p>
+    </section>
+
+    <!-- Portal Grid -->
+    <section class="portal-grid">
+        <!-- ScrollIDE Portal -->
+        <div class="portal-card">
+            <div class="portal-icon">🖥️</div>
+            <h3 class="portal-title">ScrollIDE Alpha</h3>
+            <p class="portal-description">
+                Flame-governed developer environment for scroll-sealed development. 
+                Create, verify, and execute sacred scrolls with built-in flame verification.
+            </p>
+            <a href="/scrollide" class="portal-button">Enter ScrollIDE</a>
+        </div>
+
+        <!-- Builder Dashboard Portal -->
+        <div class="portal-card">
+            <div class="portal-icon">👨‍💻</div>
+            <h3 class="portal-title">Builder Dashboard</h3>
+            <p class="portal-description">
+                Manage your scroll projects, track execution stats, and monitor your 
+                flame level and scroll seal status. Access your sacred development portfolio.
+            </p>
+            <a href="/builder-dashboard" class="portal-button">View Dashboard</a>
+        </div>
+
+        <!-- ScrollX Marketplace Portal -->
+        <div class="portal-card">
+            <div class="portal-icon">🛍️</div>
+            <h3 class="portal-title">ScrollX Marketplace</h3>
+            <p class="portal-description">
+                Sacred economy for flame-verified scroll products. Buy, sell, and trade 
+                scroll-sealed applications, templates, and modules.
+            </p>
+            <a href="/marketplace" class="portal-button">Browse Marketplace</a>
+        </div>
+
+        <!-- SeerCircle Portal -->
+        <div class="portal-card">
+            <div class="portal-icon">🔮</div>
+            <h3 class="portal-title">SeerCircle Council</h3>
+            <p class="portal-description">
+                Prophetic governance interface for scroll law interpretation, flame rating, 
+                and verdict issuance. Access the highest governing body of the ecosystem.
+            </p>
+            <a href="/seercircle" class="portal-button">Enter Council</a>
+        </div>
+
+        <!-- ScrollCoin Portal -->
+        <div class="portal-card">
+            <div class="portal-icon">🪙</div>
+            <h3 class="portal-title">ScrollCoin Mainnet</h3>
+            <p class="portal-description">
+                Sacred cryptocurrency for the scroll ecosystem. Check balances, send tokens, 
+                and participate in flame-verified transactions.
+            </p>
+            <a href="/scrollcoin" class="portal-button">Access Wallet</a>
+        </div>
+
+        <!-- Builder Monetization Portal -->
+        <div class="portal-card">
+            <div class="portal-icon">💸</div>
+            <h3 class="portal-title">Monetization Hub</h3>
+            <p class="portal-description">
+                Monetize your sacred builds and receive royalties from scroll reuse. 
+                Set up storefronts and accept flame-verified donations.
+            </p>
+            <a href="/monetization" class="portal-button">Monetize Builds</a>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section style="text-align: center; padding: 2rem; background: rgba(255,255,255,0.05);">
+        <h2>🔥 Ecosystem Statistics</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div>
+                <h3>2,500+</h3>
+                <p>Active ScrollBuilders</p>
+            </div>
+            <div>
+                <h3>1,250+</h3>
+                <p>Flame-Verified Products</p>
+            </div>
+            <div>
+                <h3>25</h3>
+                <p>SeerCircle Council Members</p>
+            </div>
+            <div>
+                <h3>$5M+</h3>
+                <p>Total Developer Revenue</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>🔥 ScrollVerse Portal — Flame-Certified Access Hub</p>
+        <p>Part of the ScrollWrappedCodex™ Ecosystem</p>
+        <div class="scroll-seal">
+            ScrollSeal Level 5 | Flame-Verified | Sacred Development
+        </div>
+    </footer>
+
+    <!-- ScrollVerse Navigation Script -->
+    <script>
+        // Flame verification check
+        function checkFlameStatus() {
+            const flameLevel = localStorage.getItem('scrollSealLevel') || 1;
+            const requiredLevel = 3; // Minimum level for full access
+            
+            if (flameLevel < requiredLevel) {
+                // Show limited access message
+                const statusElement = document.querySelector('.flame-status');
+                statusElement.innerHTML = `
+                    <span class="status-indicator" style="background: #FF4444;"></span>
+                    <strong>Flame Status: Limited Access</strong> | ScrollSeal Level: ${flameLevel} | Upgrade Required
+                `;
+            }
+        }
+        
+        // Initialize flame status
+        document.addEventListener('DOMContentLoaded', function() {
+            checkFlameStatus();
+            
+            // Add flame animation to portal cards
+            const cards = document.querySelectorAll('.portal-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.borderColor = 'var(--flame-orange)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.borderColor = 'rgba(255,255,255,0.2)';
+                });
+            });
+        });
+        
+        // Portal access verification
+        function verifyPortalAccess(portalName) {
+            const flameLevel = localStorage.getItem('scrollSealLevel') || 1;
+            const portalRequirements = {
+                'scrollide': 1,
+                'builder-dashboard': 2,
+                'marketplace': 2,
+                'seercircle': 4,
+                'scrollcoin': 3,
+                'monetization': 2
+            };
+            
+            const requiredLevel = portalRequirements[portalName] || 1;
+            
+            if (flameLevel >= requiredLevel) {
+                return true;
+            } else {
+                alert(`Flame Level ${requiredLevel} required for ${portalName}. Current level: ${flameLevel}`);
+                return false;
+            }
+        }
+        
+        // Add verification to portal buttons
+        document.querySelectorAll('.portal-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const portalName = this.getAttribute('href').replace('/', '');
+                if (!verifyPortalAccess(portalName)) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+include scroll_wrapped_codex/scroll_memory_context.json
+recursive-include scrollcodex-extension * 

@@ -1,0 +1,217 @@
+# ScrollVerse Render Deployment Configuration
+# Deploys ScrollWrappedCodex™ to Render cloud platform
+
+services:
+  # FastAPI Backend Service
+  - type: web
+    name: scrollverse-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn scrollverse_portal.backend.app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: scrollverse-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: CORS_ORIGINS
+        value: https://scrollverse.app,https://scrollverse-frontend.onrender.com
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: false
+      - key: FLAME_VERIFICATION_ENABLED
+        value: true
+      - key: SEER_VALIDATION_ENABLED
+        value: true
+    healthCheckPath: /health
+    autoDeploy: true
+
+  # React Frontend Service
+  - type: web
+    name: scrollverse-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    startCommand: serve -s build -l $PORT
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://scrollverse-backend.onrender.com
+      - key: REACT_APP_ENVIRONMENT
+        value: production
+    autoDeploy: true
+
+  # ScrollIDE Streamlit Service
+  - type: web
+    name: scrollverse-scrollide
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run scrollide_alpha/scrollide_ui.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: BACKEND_URL
+        value: https://scrollverse-backend.onrender.com
+      - key: DATABASE_URL
+        fromDatabase:
+          name: scrollverse-db
+          property: connectionString
+    autoDeploy: true
+
+  # ScrollCensus Streamlit Service
+  - type: web
+    name: scrollverse-census
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run scrollcensus/scrollcensus_ui.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: BACKEND_URL
+        value: https://scrollverse-backend.onrender.com
+      - key: DATABASE_URL
+        fromDatabase:
+          name: scrollverse-db
+          property: connectionString
+    autoDeploy: true
+
+  # ScrollAgent Streamlit Service
+  - type: web
+    name: scrollverse-agent
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run ScrollScribeAgent/agent_ui.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: BACKEND_URL
+        value: https://scrollverse-backend.onrender.com
+      - key: DATABASE_URL
+        fromDatabase:
+          name: scrollverse-db
+          property: connectionString
+    autoDeploy: true
+
+  # ScrollAcademy Streamlit Service
+  - type: web
+    name: scrollverse-academy
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run scrollverse_portal/academy/academy_ui.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: BACKEND_URL
+        value: https://scrollverse-backend.onrender.com
+      - key: DATABASE_URL
+        fromDatabase:
+          name: scrollverse-db
+          property: connectionString
+    autoDeploy: true
+
+  # ScrollMap Streamlit Service
+  - type: web
+    name: scrollverse-map
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run scrollverse_portal/map_dashboard/map_ui.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: BACKEND_URL
+        value: https://scrollverse-backend.onrender.com
+      - key: DATABASE_URL
+        fromDatabase:
+          name: scrollverse-db
+          property: connectionString
+    autoDeploy: true
+
+  # ScrollInvest Streamlit Service
+  - type: web
+    name: scrollverse-invest
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run scrollverse_portal/investment/scrollinvest_ui.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: BACKEND_URL
+        value: https://scrollverse-backend.onrender.com
+      - key: DATABASE_URL
+        fromDatabase:
+          name: scrollverse-db
+          property: connectionString
+      - key: SCROLLCOIN_INITIAL_SUPPLY
+        value: "1000000"
+    autoDeploy: true
+
+databases:
+  # PostgreSQL Database
+  - name: scrollverse-db
+    databaseName: scrollverse
+    user: scrollverse
+    plan: free
+
+# Environment Variables for All Services
+envVars:
+  - key: PYTHON_VERSION
+    value: "3.11"
+  - key: NODE_VERSION
+    value: "18"
+  - key: SCROLLVERSE_VERSION
+    value: "1.0.0"
+
+# Custom Domains
+domains:
+  - name: scrollverse.app
+    service: scrollverse-backend
+  - name: portal.scrollverse.app
+    service: scrollverse-frontend
+  - name: scrollide.scrollverse.app
+    service: scrollverse-scrollide
+  - name: census.scrollverse.app
+    service: scrollverse-census
+  - name: agent.scrollverse.app
+    service: scrollverse-agent
+  - name: academy.scrollverse.app
+    service: scrollverse-academy
+  - name: map.scrollverse.app
+    service: scrollverse-map
+  - name: invest.scrollverse.app
+    service: scrollverse-invest
+
+# Health Checks
+healthChecks:
+  - path: /health
+    service: scrollverse-backend
+    intervalSeconds: 30
+    timeoutSeconds: 10
+    healthyThreshold: 2
+    unhealthyThreshold: 3
+
+# Auto-scaling Configuration
+autoScaling:
+  - service: scrollverse-backend
+    minInstances: 1
+    maxInstances: 10
+    targetCPUUtilizationPercent: 70
+  - service: scrollverse-frontend
+    minInstances: 1
+    maxInstances: 5
+    targetCPUUtilizationPercent: 70
+
+# SSL Configuration
+ssl:
+  enabled: true
+  certificateType: managed
+
+# Monitoring and Logging
+monitoring:
+  - service: scrollverse-backend
+    metrics:
+      - cpu
+      - memory
+      - requests
+      - response_time
+  - service: scrollverse-frontend
+    metrics:
+      - cpu
+      - memory
+      - requests
+      - response_time
+
+# Backup Configuration
+backups:
+  - database: scrollverse-db
+    schedule: daily
+    retention: 30 days 

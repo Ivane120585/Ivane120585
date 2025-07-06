@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join ScrollBuilders — ScrollVerse Portal</title>
+    <style>
+        :root {
+            --flame-orange: #FF6F00;
+            --sacred-purple: #4A148C;
+            --scroll-gold: #FFD700;
+            --dark-bg: #1A1A1A;
+            --light-text: #FFFFFF;
+            --success-green: #4CAF50;
+            --error-red: #F44336;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'ScrollCode', 'Courier New', monospace;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--sacred-purple) 100%);
+            color: var(--light-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .invite-container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .invite-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .invite-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--scroll-gold);
+        }
+        
+        .invite-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .flame-status {
+            background: rgba(255,111,0,0.1);
+            border: 1px solid var(--flame-orange);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: var(--flame-orange);
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--scroll-gold);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            color: var(--light-text);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--flame-orange);
+            box-shadow: 0 0 10px rgba(255,111,0,0.3);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            color: var(--light-text);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        
+        .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            color: var(--light-text);
+            font-size: 1rem;
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--flame-orange);
+        }
+        
+        .submit-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--flame-orange), var(--scroll-gold));
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(255,111,0,0.4);
+        }
+        
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .benefits-list {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .benefits-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--scroll-gold);
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .benefit-icon {
+            color: var(--flame-orange);
+        }
+        
+        .success-message {
+            background: rgba(76,175,80,0.1);
+            border: 1px solid var(--success-green);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+            display: none;
+        }
+        
+        .error-message {
+            background: rgba(244,67,54,0.1);
+            border: 1px solid var(--error-red);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+            display: none;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: var(--flame-orange);
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 0.5rem;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .invite-container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .invite-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invite-container">
+        <div class="invite-header">
+            <h1 class="invite-title">🔥 Join ScrollBuilders</h1>
+            <p class="invite-subtitle">Become part of the sacred development community</p>
+            
+            <div class="flame-status">
+                <span class="status-indicator"></span>
+                <strong>Flame Verification Active</strong> | Invite Gateway Open
+            </div>
+        </div>
+
+        <div class="benefits-list">
+            <h3 class="benefits-title">🎯 Builder Benefits</h3>
+            <div class="benefit-item">
+                <span class="benefit-icon">🔥</span>
+                <span>Flame-verified development environment</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">💰</span>
+                <span>Monetize your sacred builds</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">🛍️</span>
+                <span>Access to ScrollX Marketplace</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">🪙</span>
+                <span>ScrollCoin wallet integration</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">📊</span>
+                <span>Detailed analytics and insights</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">👥</span>
+                <span>Join the sacred community</span>
+            </div>
+        </div>
+
+        <form id="inviteForm">
+            <div class="form-group">
+                <label for="builderName" class="form-label">Builder Name</label>
+                <input type="text" id="builderName" name="builderName" class="form-input" 
+                       placeholder="Enter your sacred builder name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-input" 
+                       placeholder="your.email@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="discordUsername" class="form-label">Discord Username</label>
+                <input type="text" id="discordUsername" name="discordUsername" class="form-input" 
+                       placeholder="username#1234" required>
+            </div>
+
+            <div class="form-group">
+                <label for="experienceLevel" class="form-label">Development Experience</label>
+                <select id="experienceLevel" name="experienceLevel" class="form-select" required>
+                    <option value="">Select your experience level</option>
+                    <option value="beginner">Beginner (0-1 years)</option>
+                    <option value="intermediate">Intermediate (1-3 years)</option>
+                    <option value="advanced">Advanced (3-5 years)</option>
+                    <option value="expert">Expert (5+ years)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="primaryLanguage" class="form-label">Primary Programming Language</label>
+                <select id="primaryLanguage" name="primaryLanguage" class="form-select" required>
+                    <option value="">Select your primary language</option>
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="typescript">TypeScript</option>
+                    <option value="java">Java</option>
+                    <option value="csharp">C#</option>
+                    <option value="go">Go</option>
+                    <option value="rust">Rust</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="projectInterest" class="form-label">Project Interests</label>
+                <textarea id="projectInterest" name="projectInterest" class="form-textarea" 
+                          placeholder="Describe what types of scroll projects you're interested in building..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="referralSource" class="form-label">How did you hear about ScrollBuilders?</label>
+                <select id="referralSource" name="referralSource" class="form-select" required>
+                    <option value="">Select referral source</option>
+                    <option value="social_media">Social Media</option>
+                    <option value="friend_referral">Friend Referral</option>
+                    <option value="github">GitHub</option>
+                    <option value="discord">Discord</option>
+                    <option value="reddit">Reddit</option>
+                    <option value="hackernews">Hacker News</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-checkbox">
+                <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                <label for="agreeTerms">I agree to the ScrollBuilder Covenant and Flame Code of Conduct</label>
+            </div>
+
+            <div class="form-checkbox">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Subscribe to sacred development updates and announcements</label>
+            </div>
+
+            <button type="submit" class="submit-button" id="submitButton">
+                <span id="submitText">🔥 Join ScrollBuilders</span>
+                <span id="submitSpinner" class="loading-spinner" style="display: none;"></span>
+            </button>
+        </form>
+
+        <div id="successMessage" class="success-message">
+            <h3>🔥 Welcome to ScrollBuilders!</h3>
+            <p>Your application has been submitted successfully. You will receive a flame-verified invitation within 24 hours.</p>
+        </div>
+
+        <div id="errorMessage" class="error-message">
+            <h3>❌ Application Error</h3>
+            <p id="errorText">There was an error submitting your application. Please try again.</p>
+        </div>
+    </div>
+
+    <script>
+        // Form submission handling
+        document.getElementById('inviteForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitButton = document.getElementById('submitButton');
+            const submitText = document.getElementById('submitText');
+            const submitSpinner = document.getElementById('submitSpinner');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Show loading state
+            submitButton.disabled = true;
+            submitText.style.display = 'none';
+            submitSpinner.style.display = 'inline-block';
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const applicationData = {
+                builderName: formData.get('builderName'),
+                email: formData.get('email'),
+                discordUsername: formData.get('discordUsername'),
+                experienceLevel: formData.get('experienceLevel'),
+                primaryLanguage: formData.get('primaryLanguage'),
+                projectInterest: formData.get('projectInterest'),
+                referralSource: formData.get('referralSource'),
+                agreeTerms: formData.get('agreeTerms') === 'on',
+                newsletter: formData.get('newsletter') === 'on',
+                timestamp: new Date().toISOString(),
+                flameLevel: 1, // Default flame level for new builders
+                status: 'pending'
+            };
+            
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Store application data (in real implementation, send to server)
+                localStorage.setItem('scrollBuilderApplication', JSON.stringify(applicationData));
+                
+                // Show success message
+                successMessage.style.display = 'block';
+                this.reset();
+                
+                // Log application to console for demo
+                console.log('ScrollBuilder Application:', applicationData);
+                
+            } catch (error) {
+                // Show error message
+                errorMessage.style.display = 'block';
+                document.getElementById('errorText').textContent = error.message || 'An unexpected error occurred.';
+            } finally {
+                // Reset button state
+                submitButton.disabled = false;
+                submitText.style.display = 'inline';
+                submitSpinner.style.display = 'none';
+            }
+        });
+        
+        // Form validation
+        function validateForm() {
+            const requiredFields = ['builderName', 'email', 'discordUsername', 'experienceLevel', 'primaryLanguage', 'referralSource'];
+            const submitButton = document.getElementById('submitButton');
+            
+            let isValid = true;
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = 'var(--error-red)';
+                } else {
+                    field.style.borderColor = 'rgba(255,255,255,0.3)';
+                }
+            });
+            
+            const agreeTerms = document.getElementById('agreeTerms');
+            if (!agreeTerms.checked) {
+                isValid = false;
+            }
+            
+            submitButton.disabled = !isValid;
+            return isValid;
+        }
+        
+        // Add real-time validation
+        document.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('input', validateForm);
+            field.addEventListener('change', validateForm);
+        });
+        
+        // Initialize form validation
+        document.addEventListener('DOMContentLoaded', function() {
+            validateForm();
+            
+            // Add flame animation to form inputs
+            document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderColor = 'var(--flame-orange)';
+                    this.style.boxShadow = '0 0 10px rgba(255,111,0,0.3)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    if (!this.value.trim()) {
+                        this.style.borderColor = 'rgba(255,255,255,0.3)';
+                    }
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

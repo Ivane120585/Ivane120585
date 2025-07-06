@@ -1,0 +1,121 @@
+version: '3.8'
+
+services:
+  # FastAPI Backend
+  backend:
+    build:
+      context: ..
+      dockerfile: scrollverse_portal/deploy/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://scrollverse:scrollverse@db:5432/scrollverse
+      - SECRET_KEY=scrollverse_secret_key_2024
+      - JWT_ALGORITHM=HS256
+      - CORS_ORIGINS=http://localhost:3000,http://localhost:8501
+    depends_on:
+      - db
+    volumes:
+      - ../scrollverse_portal:/app/scrollverse_portal
+      - ../scrollcensus:/app/scrollcensus
+      - ../scroll_phase_11:/app/scroll_phase_11
+    networks:
+      - scrollverse-network
+
+  # PostgreSQL Database
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=scrollverse
+      - POSTGRES_USER=scrollverse
+      - POSTGRES_PASSWORD=scrollverse
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - scrollverse-network
+
+  # Streamlit Frontend
+  frontend:
+    build:
+      context: ..
+      dockerfile: scrollverse_portal/deploy/Dockerfile.streamlit
+    ports:
+      - "8501:8501"
+    environment:
+      - BACKEND_URL=http://backend:8000
+      - DATABASE_URL=postgresql://scrollverse:scrollverse@db:5432/scrollverse
+    depends_on:
+      - backend
+    volumes:
+      - ../scrollverse_portal/frontend:/app/frontend
+      - ../scrollcensus:/app/scrollcensus
+    networks:
+      - scrollverse-network
+
+  # Redis for caching
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - scrollverse-network
+
+  # Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - scrollverse-network
+
+  # ScrollIDE Service
+  scrollide:
+    build:
+      context: ..
+      dockerfile: scrollverse_portal/deploy/Dockerfile.scrollide
+    ports:
+      - "8502:8501"
+    environment:
+      - BACKEND_URL=http://backend:8000
+    depends_on:
+      - backend
+    volumes:
+      - ../scrollide_alpha:/app/scrollide_alpha
+    networks:
+      - scrollverse-network
+
+  # ScrollAgent Service
+  scrollagent:
+    build:
+      context: ..
+      dockerfile: scrollverse_portal/deploy/Dockerfile.agent
+    ports:
+      - "8503:8501"
+    environment:
+      - BACKEND_URL=http://backend:8000
+    depends_on:
+      - backend
+    volumes:
+      - ../ScrollScribeAgent:/app/ScrollScribeAgent
+    networks:
+      - scrollverse-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  scrollverse-network:
+    driver: bridge 

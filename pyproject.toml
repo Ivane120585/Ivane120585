@@ -1,0 +1,12 @@
+[project]
+name = "scrollwrappedcodex"
+version = "0.1.0"
+description = "A scroll-sealed Codex executor"
+authors = [{name = "Stanley Osei-Wusu", email = "scroll@sealed.ai"}]
+readme = "README.md"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+scrollcodex = "cli:main"
+scrollfile = "run_scroll_file:main" 

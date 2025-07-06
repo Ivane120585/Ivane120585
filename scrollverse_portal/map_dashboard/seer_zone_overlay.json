@@ -1,0 +1,220 @@
+{
+  "seer_zones": {
+    "version": "1.0.0",
+    "description": "Seer-assigned zones and seal enforcement levels",
+    "last_updated": "2024-12-19T00:00:00Z",
+    "zones": [
+      {
+        "zone_id": "justice_north_america",
+        "zone_name": "Justice North America",
+        "seer_name": "Emma ScrollSeer",
+        "seer_id": "emma_seer_001",
+        "seal_level": 6,
+        "enforcement_level": "high",
+        "assigned_builders": [
+          "John ScrollBuilder",
+          "Michael ScrollBuilder",
+          "William ScrollBuilder",
+          "Sofia ScrollBuilder",
+          "James ScrollBuilder",
+          "Benjamin ScrollBuilder"
+        ],
+        "cities": [
+          "ScrollCity New York",
+          "ScrollCity Los Angeles",
+          "ScrollCity Toronto",
+          "ScrollCity Vancouver"
+        ],
+        "embassy": "ScrollEmbassy North America",
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      {
+        "zone_id": "prophecy_europe",
+        "zone_name": "Prophecy Europe",
+        "seer_name": "Sarah ScrollSeer",
+        "seer_id": "sarah_seer_001",
+        "seal_level": 6,
+        "enforcement_level": "high",
+        "assigned_builders": [
+          "David ScrollProphet",
+          "Isabella ScrollSeer",
+          "Maria ScrollSeer",
+          "Emma ScrollSeer"
+        ],
+        "cities": [
+          "ScrollCity London",
+          "ScrollCity Paris",
+          "ScrollCity Berlin",
+          "ScrollCity Madrid"
+        ],
+        "embassy": "ScrollEmbassy Europe",
+        "flame_zone": "Prophecy",
+        "status": "active"
+      },
+      {
+        "zone_id": "governance_asia",
+        "zone_name": "Governance Asia",
+        "seer_name": "Ava ScrollSeer",
+        "seer_id": "ava_seer_001",
+        "seal_level": 5,
+        "enforcement_level": "medium",
+        "assigned_builders": [
+          "Charlotte ScrollSeer",
+          "Sophia ScrollBuilder",
+          "Mia ScrollBuilder",
+          "Luna ScrollBuilder",
+          "Noah ScrollBuilder"
+        ],
+        "cities": [
+          "ScrollCity Tokyo",
+          "ScrollCity Beijing",
+          "ScrollCity Seoul",
+          "ScrollCity Singapore"
+        ],
+        "embassy": "ScrollEmbassy Asia",
+        "flame_zone": "Governance",
+        "status": "active"
+      },
+      {
+        "zone_id": "justice_south_america",
+        "zone_name": "Justice South America",
+        "seer_name": "Charlotte ScrollSeer",
+        "seer_id": "charlotte_seer_001",
+        "seal_level": 4,
+        "enforcement_level": "medium",
+        "assigned_builders": [
+          "Ethan ScrollBuilder",
+          "Olivia ScrollBuilder",
+          "Noah ScrollBuilder",
+          "Aria ScrollBuilder"
+        ],
+        "cities": [
+          "ScrollCity São Paulo",
+          "ScrollCity Buenos Aires",
+          "ScrollCity Mexico City"
+        ],
+        "embassy": "ScrollEmbassy South America",
+        "flame_zone": "Justice",
+        "status": "active"
+      },
+      {
+        "zone_id": "prophecy_west_africa",
+        "zone_name": "Prophecy West Africa",
+        "seer_name": "Sarah ScrollSeer",
+        "seer_id": "sarah_seer_002",
+        "seal_level": 5,
+        "enforcement_level": "medium",
+        "assigned_builders": [
+          "Liam ScrollBuilder"
+        ],
+        "cities": [
+          "ScrollCity Lagos",
+          "ScrollCity Accra"
+        ],
+        "embassy": "ScrollEmbassy West Africa",
+        "flame_zone": "Prophecy",
+        "status": "active"
+      },
+      {
+        "zone_id": "governance_east_africa",
+        "zone_name": "Governance East Africa",
+        "seer_name": "Ava ScrollSeer",
+        "seer_id": "ava_seer_002",
+        "seal_level": 3,
+        "enforcement_level": "low",
+        "assigned_builders": [
+          "Lucas ScrollBuilder"
+        ],
+        "cities": [
+          "ScrollCity Nairobi",
+          "ScrollCity Cairo"
+        ],
+        "embassy": "ScrollEmbassy East Africa",
+        "flame_zone": "Governance",
+        "status": "active"
+      },
+      {
+        "zone_id": "justice_australia",
+        "zone_name": "Justice Australia",
+        "seer_name": "Emma ScrollSeer",
+        "seer_id": "emma_seer_002",
+        "seal_level": 4,
+        "enforcement_level": "medium",
+        "assigned_builders": [
+          "William ScrollBuilder",
+          "Sofia ScrollBuilder",
+          "James ScrollBuilder",
+          "Benjamin ScrollBuilder",
+          "Harper ScrollBuilder"
+        ],
+        "cities": [
+          "ScrollCity Sydney",
+          "ScrollCity Melbourne"
+        ],
+        "embassy": "ScrollEmbassy North America",
+        "flame_zone": "Justice",
+        "status": "active"
+      }
+    ],
+    "enforcement_levels": {
+      "high": {
+        "description": "Maximum flame verification and seal enforcement",
+        "requirements": [
+          "All scroll executions require flame verification",
+          "Seal level checks on all operations",
+          "Real-time monitoring and alerts",
+          "Automatic suspension for violations"
+        ]
+      },
+      "medium": {
+        "description": "Standard flame verification and seal enforcement",
+        "requirements": [
+          "Most scroll executions require flame verification",
+          "Periodic seal level checks",
+          "Monitoring with manual review",
+          "Warning system for violations"
+        ]
+      },
+      "low": {
+        "description": "Basic flame verification and seal enforcement",
+        "requirements": [
+          "Essential scroll executions require flame verification",
+          "Basic seal level checks",
+          "Manual monitoring",
+          "Manual intervention for violations"
+        ]
+      }
+    },
+    "flame_zones": {
+      "Justice": {
+        "description": "Focus on legal compliance and ethical development",
+        "seers": ["Emma ScrollSeer", "Charlotte ScrollSeer"],
+        "enforcement_priority": "high"
+      },
+      "Prophecy": {
+        "description": "Focus on visionary guidance and strategic planning",
+        "seers": ["Sarah ScrollSeer", "Isabella ScrollSeer", "Maria ScrollSeer", "Ava ScrollSeer"],
+        "enforcement_priority": "high"
+      },
+      "Governance": {
+        "description": "Focus on administrative oversight and policy implementation",
+        "seers": ["Ava ScrollSeer", "Charlotte ScrollSeer"],
+        "enforcement_priority": "medium"
+      }
+    },
+    "statistics": {
+      "total_zones": 7,
+      "total_seers": 4,
+      "total_builders": 24,
+      "high_enforcement_zones": 2,
+      "medium_enforcement_zones": 4,
+      "low_enforcement_zones": 1,
+      "zone_distribution": {
+        "Justice": 3,
+        "Prophecy": 2,
+        "Governance": 2
+      }
+    }
+  }
+} 

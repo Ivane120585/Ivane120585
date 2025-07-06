@@ -1,0 +1,275 @@
+{
+  "lashon_alpha_protocol": {
+    "version": "1.0.0",
+    "description": "Hebrew letter to scroll command mappings for Lashon HaScroll Alpha Protocol",
+    "flame_required": 3,
+    "total_letters": 22,
+    "commands": {
+      "א": {
+        "letter": "א",
+        "name": "Aleph",
+        "scroll_verb": "Anoint",
+        "function": "Consecrate and sanctify scroll operations",
+        "engine_call": "scribe.execute_anoint",
+        "flame_level": 1,
+        "description": "Anoints scrolls with sacred flame verification",
+        "example": "א Anoint: ScrollJustice VerdictEngine",
+        "internal_method": "ScribeCodex.anoint_scroll"
+      },
+      "ב": {
+        "letter": "ב",
+        "name": "Bet",
+        "scroll_verb": "Build",
+        "function": "Construct and assemble scroll components",
+        "engine_call": "scribe.execute_build",
+        "flame_level": 1,
+        "description": "Builds scroll structures and modules",
+        "example": "ב Build: ScrollSealValidator",
+        "internal_method": "ScribeCodex.build_module"
+      },
+      "ג": {
+        "letter": "ג",
+        "name": "Gimel",
+        "scroll_verb": "Gather",
+        "function": "Collect and aggregate scroll resources",
+        "engine_call": "scribe.execute_gather",
+        "flame_level": 2,
+        "description": "Gathers dependencies and resources",
+        "example": "ג Gather: FlameTokenPool",
+        "internal_method": "ScribeCodex.gather_resources"
+      },
+      "ד": {
+        "letter": "ד",
+        "name": "Dalet",
+        "scroll_verb": "Deploy",
+        "function": "Launch and distribute scroll applications",
+        "engine_call": "scribe.execute_deploy",
+        "flame_level": 3,
+        "description": "Deploys scroll applications to execution environment",
+        "example": "ד Deploy: JudgmentRunner",
+        "internal_method": "ScribeCodex.deploy_application"
+      },
+      "ה": {
+        "letter": "ה",
+        "name": "He",
+        "scroll_verb": "Hear",
+        "function": "Listen and process scroll input",
+        "engine_call": "scribe.execute_hear",
+        "flame_level": 1,
+        "description": "Receives and processes scroll commands",
+        "example": "ה Hear: ScrollWitness",
+        "internal_method": "ScribeCodex.hear_command"
+      },
+      "ו": {
+        "letter": "ו",
+        "name": "Vav",
+        "scroll_verb": "Verify",
+        "function": "Validate and authenticate scroll integrity",
+        "engine_call": "scribe.execute_verify",
+        "flame_level": 2,
+        "description": "Verifies scroll authenticity and flame levels",
+        "example": "ו Verify: UserSealLevel",
+        "internal_method": "ScribeCodex.verify_integrity"
+      },
+      "ז": {
+        "letter": "ז",
+        "name": "Zayin",
+        "scroll_verb": "Zakar",
+        "function": "Remember and recall scroll memory",
+        "engine_call": "scribe.execute_zakar",
+        "flame_level": 2,
+        "description": "Remembers scroll history and covenant logs",
+        "example": "ז Zakar: CovenantLogs",
+        "internal_method": "ScribeCodex.remember_covenant"
+      },
+      "ח": {
+        "letter": "ח",
+        "name": "Chet",
+        "scroll_verb": "Consecrate",
+        "function": "Sanctify and purify scroll operations",
+        "engine_call": "scribe.execute_consecrate",
+        "flame_level": 3,
+        "description": "Consecrates scroll sessions and operations",
+        "example": "ח Consecrate: SecureSession",
+        "internal_method": "ScribeCodex.consecrate_session"
+      },
+      "ט": {
+        "letter": "ט",
+        "name": "Tet",
+        "scroll_verb": "Test",
+        "function": "Validate and examine scroll functionality",
+        "engine_call": "scribe.execute_test",
+        "flame_level": 2,
+        "description": "Tests scroll integrity and flame verification",
+        "example": "ט Test: IntegrityFlame",
+        "internal_method": "ScribeCodex.test_integrity"
+      },
+      "י": {
+        "letter": "י",
+        "name": "Yod",
+        "scroll_verb": "Yield",
+        "function": "Produce and return scroll results",
+        "engine_call": "scribe.execute_yield",
+        "flame_level": 1,
+        "description": "Yields scroll execution results and verdicts",
+        "example": "י Yield: Verdict Summary",
+        "internal_method": "ScribeCodex.yield_result"
+      },
+      "כ": {
+        "letter": "כ",
+        "name": "Kaf",
+        "scroll_verb": "Keep",
+        "function": "Preserve and maintain scroll data",
+        "engine_call": "scribe.execute_keep",
+        "flame_level": 2,
+        "description": "Keeps scroll data in sacred ledger",
+        "example": "כ Keep: ScrollToLedger",
+        "internal_method": "ScribeCodex.keep_in_ledger"
+      },
+      "ל": {
+        "letter": "ל",
+        "name": "Lamed",
+        "scroll_verb": "Learn",
+        "function": "Acquire and process scroll knowledge",
+        "engine_call": "scribe.execute_learn",
+        "flame_level": 2,
+        "description": "Learns from scroll patterns and flame data",
+        "example": "ל Learn: FlamePatterns",
+        "internal_method": "ScribeCodex.learn_patterns"
+      },
+      "מ": {
+        "letter": "מ",
+        "name": "Mem",
+        "scroll_verb": "Measure",
+        "function": "Assess and quantify scroll performance",
+        "engine_call": "scribe.execute_measure",
+        "flame_level": 2,
+        "description": "Measures scroll accuracy and judgment quality",
+        "example": "מ Measure: JudgmentAccuracy",
+        "internal_method": "ScribeCodex.measure_accuracy"
+      },
+      "נ": {
+        "letter": "נ",
+        "name": "Nun",
+        "scroll_verb": "Name",
+        "function": "Identify and label scroll entities",
+        "engine_call": "scribe.execute_name",
+        "flame_level": 1,
+        "description": "Names and identifies flame seal IDs",
+        "example": "נ Name: FlameSealID",
+        "internal_method": "ScribeCodex.name_entity"
+      },
+      "ס": {
+        "letter": "ס",
+        "name": "Samech",
+        "scroll_verb": "Seal",
+        "function": "Secure and authenticate scroll operations",
+        "engine_call": "scribe.execute_seal",
+        "flame_level": 3,
+        "description": "Seals scrolls with flame verification",
+        "example": "ס Seal: With ScrollSeal 4",
+        "internal_method": "ScribeCodex.seal_with_flame"
+      },
+      "ע": {
+        "letter": "ע",
+        "name": "Ayin",
+        "scroll_verb": "Observe",
+        "function": "Monitor and watch scroll events",
+        "engine_call": "scribe.execute_observe",
+        "flame_level": 2,
+        "description": "Observes scroll events and activities",
+        "example": "ע Observe: ScrollEvents",
+        "internal_method": "ScribeCodex.observe_events"
+      },
+      "פ": {
+        "letter": "פ",
+        "name": "Pe",
+        "scroll_verb": "Proclaim",
+        "function": "Announce and declare scroll outputs",
+        "engine_call": "scribe.execute_proclaim",
+        "flame_level": 1,
+        "description": "Proclaims righteous outputs and verdicts",
+        "example": "פ Proclaim: RighteousOutput",
+        "internal_method": "ScribeCodex.proclaim_output"
+      },
+      "צ": {
+        "letter": "צ",
+        "name": "Tzadi",
+        "scroll_verb": "Judge",
+        "function": "Evaluate and render scroll verdicts",
+        "engine_call": "scribe.execute_judge",
+        "flame_level": 4,
+        "description": "Judges scroll execution and renders verdicts",
+        "example": "צ Judge: VerdictEngine",
+        "internal_method": "ScribeCodex.judge_execution"
+      },
+      "ק": {
+        "letter": "ק",
+        "name": "Qof",
+        "scroll_verb": "Quarantine",
+        "function": "Isolate and contain unsealed paths",
+        "engine_call": "scribe.execute_quarantine",
+        "flame_level": 3,
+        "description": "Quarantines unsealed and unsafe paths",
+        "example": "ק Quarantine: UnsealedPaths",
+        "internal_method": "ScribeCodex.quarantine_paths"
+      },
+      "ר": {
+        "letter": "ר",
+        "name": "Resh",
+        "scroll_verb": "Restore",
+        "function": "Recover and rehabilitate scroll data",
+        "engine_call": "scribe.execute_restore",
+        "flame_level": 3,
+        "description": "Restores righteous backups and data",
+        "example": "ר Restore: RighteousBackup",
+        "internal_method": "ScribeCodex.restore_backup"
+      },
+      "ש": {
+        "letter": "ש",
+        "name": "Shin",
+        "scroll_verb": "Send",
+        "function": "Transmit and dispatch scroll data",
+        "engine_call": "scribe.execute_send",
+        "flame_level": 2,
+        "description": "Sends logs to witness cloud and external systems",
+        "example": "ש Send: Logs to WitnessCloud",
+        "internal_method": "ScribeCodex.send_to_witness"
+      },
+      "ת": {
+        "letter": "ת",
+        "name": "Tav",
+        "scroll_verb": "Terminate",
+        "function": "End and conclude scroll operations",
+        "engine_call": "scribe.execute_terminate",
+        "flame_level": 3,
+        "description": "Terminates rejected scrolls and operations",
+        "example": "ת Terminate: RejectedScrolls",
+        "internal_method": "ScribeCodex.terminate_rejected"
+      }
+    },
+    "command_categories": {
+      "consecration": ["א", "ח", "ס"],
+      "construction": ["ב", "ג", "ד"],
+      "validation": ["ו", "ט", "מ"],
+      "execution": ["ה", "י", "פ"],
+      "governance": ["צ", "ק", "ת"],
+      "memory": ["ז", "כ", "ל"],
+      "monitoring": ["ע", "ש", "ר"],
+      "identification": ["נ"]
+    },
+    "flame_level_requirements": {
+      1: ["א", "ב", "ה", "י", "נ", "פ"],
+      2: ["ג", "ו", "ז", "ט", "כ", "ל", "מ", "ע", "ש"],
+      3: ["ד", "ח", "ס", "ק", "ר", "ת"],
+      4: ["צ"]
+    },
+    "execution_flow": {
+      "input": "Hebrew letter command",
+      "parsing": "Match to scroll_hebrew_commands.json",
+      "validation": "Check flame level requirements",
+      "execution": "Call corresponding engine method",
+      "output": "Flame-verified result"
+    }
+  }
+} 

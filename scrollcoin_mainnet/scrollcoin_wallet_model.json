@@ -1,0 +1,221 @@
+{
+  "wallet_schema": {
+    "version": "1.0.0",
+    "network": "ScrollCoin Mainnet",
+    "flame_required": 3,
+    "description": "Sacred cryptocurrency wallet model for ScrollWrappedCodex™ ecosystem"
+  },
+  "wallet_fields": {
+    "builder_id": {
+      "type": "string",
+      "format": "scrollbuilder_####",
+      "description": "Unique ScrollBuilder identifier",
+      "example": "scrollbuilder_2471",
+      "required": true,
+      "validation": "regex:^scrollbuilder_[0-9]{4}$"
+    },
+    "flame_balance": {
+      "type": "number",
+      "precision": 8,
+      "minimum": 0,
+      "description": "Current ScrollCoin balance in FLAME units",
+      "example": 1250.75000000,
+      "required": true,
+      "validation": "non_negative"
+    },
+    "seal_required": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Minimum scroll seal level required for transactions",
+      "example": 3,
+      "required": true,
+      "validation": "range:1-5"
+    },
+    "auto_tithe_percentage": {
+      "type": "number",
+      "precision": 2,
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Automatic tithe percentage for sacred development fund",
+      "example": 10.00,
+      "default": 5.00,
+      "required": false,
+      "validation": "range:0-100"
+    },
+    "wallet_address": {
+      "type": "string",
+      "format": "scroll_####_####_####_####",
+      "description": "Unique wallet address for ScrollCoin transactions",
+      "example": "scroll_abcd_efgh_ijkl_mnop",
+      "required": true,
+      "validation": "regex:^scroll_[a-f0-9]{4}_[a-f0-9]{4}_[a-f0-9]{4}_[a-f0-9]{4}$"
+    },
+    "flame_level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Current flame level of the wallet owner",
+      "example": 4,
+      "required": true,
+      "validation": "range:1-5"
+    },
+    "last_transaction": {
+      "type": "string",
+      "format": "iso8601",
+      "description": "Timestamp of last transaction",
+      "example": "2025-01-15T14:30:00Z",
+      "required": false
+    },
+    "transaction_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total number of transactions performed",
+      "example": 47,
+      "required": true,
+      "default": 0
+    },
+    "total_received": {
+      "type": "number",
+      "precision": 8,
+      "description": "Total ScrollCoin received",
+      "example": 5000.25000000,
+      "required": true,
+      "default": 0
+    },
+    "total_sent": {
+      "type": "number",
+      "precision": 8,
+      "description": "Total ScrollCoin sent",
+      "example": 3750.50000000,
+      "required": true,
+      "default": 0
+    },
+    "tithe_total": {
+      "type": "number",
+      "precision": 8,
+      "description": "Total amount tithed to sacred development fund",
+      "example": 187.52500000,
+      "required": true,
+      "default": 0
+    },
+    "wallet_status": {
+      "type": "string",
+      "enum": ["active", "suspended", "pending", "locked"],
+      "description": "Current status of the wallet",
+      "example": "active",
+      "required": true,
+      "default": "pending"
+    },
+    "security_level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Security level of the wallet",
+      "example": 4,
+      "required": true,
+      "default": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "iso8601",
+      "description": "Wallet creation timestamp",
+      "example": "2025-01-01T00:00:00Z",
+      "required": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "iso8601",
+      "description": "Last wallet update timestamp",
+      "example": "2025-01-15T14:30:00Z",
+      "required": true
+    }
+  },
+  "transaction_limits": {
+    "daily_limit": {
+      "type": "number",
+      "precision": 8,
+      "description": "Maximum daily transaction amount",
+      "flame_level_1": 100.00000000,
+      "flame_level_2": 500.00000000,
+      "flame_level_3": 1000.00000000,
+      "flame_level_4": 5000.00000000,
+      "flame_level_5": 10000.00000000
+    },
+    "single_transaction_limit": {
+      "type": "number",
+      "precision": 8,
+      "description": "Maximum single transaction amount",
+      "flame_level_1": 50.00000000,
+      "flame_level_2": 250.00000000,
+      "flame_level_3": 500.00000000,
+      "flame_level_4": 2500.00000000,
+      "flame_level_5": 5000.00000000
+    }
+  },
+  "tithe_configuration": {
+    "sacred_development_fund": {
+      "address": "scroll_sacred_dev_fund_001",
+      "description": "Sacred development fund for ecosystem growth",
+      "percentage": 5.00,
+      "minimum_amount": 1.00000000
+    },
+    "seercircle_council_fund": {
+      "address": "scroll_seercircle_council_001",
+      "description": "SeerCircle Council governance fund",
+      "percentage": 2.00,
+      "minimum_amount": 0.50000000
+    },
+    "flame_verification_fund": {
+      "address": "scroll_flame_verification_001",
+      "description": "Flame verification system maintenance",
+      "percentage": 1.00,
+      "minimum_amount": 0.25000000
+    }
+  },
+  "security_features": {
+    "flame_verification": {
+      "enabled": true,
+      "required_level": 3,
+      "description": "Flame verification for all transactions"
+    },
+    "scroll_seal_validation": {
+      "enabled": true,
+      "description": "Validate scroll seal level before transactions"
+    },
+    "transaction_logging": {
+      "enabled": true,
+      "retention_days": 365,
+      "description": "Comprehensive transaction logging"
+    },
+    "rate_limiting": {
+      "enabled": true,
+      "max_transactions_per_hour": 10,
+      "description": "Rate limiting to prevent abuse"
+    }
+  },
+  "example_wallet": {
+    "builder_id": "scrollbuilder_2471",
+    "flame_balance": 1250.75000000,
+    "seal_required": 3,
+    "auto_tithe_percentage": 10.00,
+    "wallet_address": "scroll_abcd_efgh_ijkl_mnop",
+    "flame_level": 4,
+    "last_transaction": "2025-01-15T14:30:00Z",
+    "transaction_count": 47,
+    "total_received": 5000.25000000,
+    "total_sent": 3750.50000000,
+    "tithe_total": 187.52500000,
+    "wallet_status": "active",
+    "security_level": 4,
+    "created_at": "2025-01-01T00:00:00Z",
+    "updated_at": "2025-01-15T14:30:00Z"
+  },
+  "validation_rules": {
+    "flame_balance_validation": "balance >= 0",
+    "seal_level_validation": "seal_required <= flame_level",
+    "transaction_limit_validation": "amount <= daily_limit[flame_level]",
+    "tithe_validation": "auto_tithe_percentage >= 0 AND auto_tithe_percentage <= 100",
+    "wallet_status_validation": "status IN ['active', 'suspended', 'pending', 'locked']"
+  }
+} 

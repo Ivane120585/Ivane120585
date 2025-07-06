@@ -1,0 +1,665 @@
+---
+// ScrollBuilder Project Storefront Template
+// Sacred commerce interface for flame-verified scroll products
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred Storefront — ScrollBuilder Projects</title>
+    <meta name="description" content="Flame-verified scroll products from sacred builders">
+    
+    <!-- ScrollVerse Styling -->
+    <style>
+        :root {
+            --flame-orange: #FF6F00;
+            --sacred-purple: #4A148C;
+            --scroll-gold: #FFD700;
+            --dark-bg: #1A1A1A;
+            --light-text: #FFFFFF;
+            --success-green: #4CAF50;
+            --warning-yellow: #FF9800;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'ScrollCode', 'Courier New', monospace;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--sacred-purple) 100%);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .storefront-header {
+            background: linear-gradient(90deg, var(--sacred-purple), var(--flame-orange));
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .builder-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .builder-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--scroll-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .builder-details h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .builder-rank {
+            font-size: 1.2rem;
+            color: var(--scroll-gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .builder-stats {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--scroll-gold);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .storefront-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .product-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255,111,0,0.3);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, var(--flame-orange), var(--scroll-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+        }
+        
+        .product-seal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--sacred-purple);
+            color: var(--light-text);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .product-content {
+            padding: 2rem;
+        }
+        
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .product-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--scroll-gold);
+        }
+        
+        .product-price {
+            background: var(--flame-orange);
+            color: var(--dark-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .product-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .product-features {
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .feature-icon {
+            color: var(--flame-orange);
+        }
+        
+        .product-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-stat {
+            text-align: center;
+            background: rgba(255,255,255,0.05);
+            padding: 0.8rem;
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--scroll-gold);
+        }
+        
+        .stat-text {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .action-button {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .primary-button {
+            background: linear-gradient(45deg, var(--flame-orange), var(--scroll-gold));
+            color: var(--dark-bg);
+        }
+        
+        .primary-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255,111,0,0.4);
+        }
+        
+        .secondary-button {
+            background: rgba(255,255,255,0.1);
+            color: var(--light-text);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .secondary-button:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .donation-section {
+            background: rgba(255,111,0,0.1);
+            border: 1px solid var(--flame-orange);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .donation-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--scroll-gold);
+        }
+        
+        .donation-options {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .donation-option {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .donation-option:hover {
+            background: rgba(255,111,0,0.2);
+            border-color: var(--flame-orange);
+        }
+        
+        .donation-amount {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--scroll-gold);
+        }
+        
+        .donation-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .royalty-info {
+            background: rgba(76,175,80,0.1);
+            border: 1px solid var(--success-green);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .royalty-percentage {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--success-green);
+        }
+        
+        @media (max-width: 768px) {
+            .builder-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .donation-options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Storefront Header -->
+    <header class="storefront-header">
+        <div class="builder-info">
+            <div class="builder-avatar">SB</div>
+            <div class="builder-details">
+                <h1>ScrollBuilder #2471</h1>
+                <p class="builder-rank">🔥 Flame Keeper • Seal Level 4</p>
+                <p>Sacred scroll developer since January 2025</p>
+            </div>
+        </div>
+        
+        <div class="builder-stats">
+            <div class="stat-item">
+                <div class="stat-value">12</div>
+                <div class="stat-label">Products</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">1,247</div>
+                <div class="stat-label">Executions</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">$2,450</div>
+                <div class="stat-label">Revenue</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">4.8</div>
+                <div class="stat-label">Rating</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Storefront Content -->
+    <div class="storefront-content">
+        <!-- Products Grid -->
+        <div class="products-grid">
+            <!-- SacredCalculator Pro -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span>🧮</span>
+                    <div class="product-seal">Seal Level 5</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <span class="product-name">SacredCalculator Pro</span>
+                        <span class="product-price">$45</span>
+                    </div>
+                    <p class="product-description">
+                        Advanced mathematical operations with flame verification. Supports complex calculations, 
+                        sacred geometry, and flame-verified results. Perfect for scientific scroll development.
+                    </p>
+                    
+                    <div class="product-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🔥</span>
+                            <span>Flame-verified calculations</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📊</span>
+                            <span>Advanced mathematical functions</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🛡️</span>
+                            <span>Sacred geometry support</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-stats">
+                        <div class="product-stat">
+                            <div class="stat-number">847</div>
+                            <div class="stat-text">Executions</div>
+                        </div>
+                        <div class="product-stat">
+                            <div class="stat-number">4.9</div>
+                            <div class="stat-text">Rating</div>
+                        </div>
+                        <div class="product-stat">
+                            <div class="stat-number">$1,250</div>
+                            <div class="stat-text">Revenue</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <a href="/purchase/sacredcalculator-pro" class="action-button primary-button">Purchase</a>
+                        <a href="/preview/sacredcalculator-pro" class="action-button secondary-button">Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FlameValidator Suite -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span>🔐</span>
+                    <div class="product-seal">Seal Level 4</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <span class="product-name">FlameValidator Suite</span>
+                        <span class="product-price">$35</span>
+                    </div>
+                    <p class="product-description">
+                        Universal flame verification system for scroll integrity. Validates scroll authenticity 
+                        and ensures proper flame levels. Essential for secure scroll development.
+                    </p>
+                    
+                    <div class="product-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🔥</span>
+                            <span>Universal flame verification</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🛡️</span>
+                            <span>Scroll integrity validation</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">⚡</span>
+                            <span>Real-time verification</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-stats">
+                        <div class="product-stat">
+                            <div class="stat-number">1,203</div>
+                            <div class="stat-text">Executions</div>
+                        </div>
+                        <div class="product-stat">
+                            <div class="stat-number">4.8</div>
+                            <div class="stat-text">Rating</div>
+                        </div>
+                        <div class="product-stat">
+                            <div class="stat-number">$890</div>
+                            <div class="stat-text">Revenue</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <a href="/purchase/flamevalidator-suite" class="action-button primary-button">Purchase</a>
+                        <a href="/preview/flamevalidator-suite" class="action-button secondary-button">Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ScrollOS Bootloader -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span>⚙️</span>
+                    <div class="product-seal">Seal Level 3</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <span class="product-name">ScrollOS Bootloader</span>
+                        <span class="product-price">$25</span>
+                    </div>
+                    <p class="product-description">
+                        Bootloader system for ScrollOS with integrated flame checks. Ensures secure startup 
+                        with flame verification. Perfect for ScrollOS development and deployment.
+                    </p>
+                    
+                    <div class="product-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🚀</span>
+                            <span>Secure boot process</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔥</span>
+                            <span>Integrated flame checks</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🛡️</span>
+                            <span>ScrollOS compatibility</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-stats">
+                        <div class="product-stat">
+                            <div class="stat-number">156</div>
+                            <div class="stat-text">Executions</div>
+                        </div>
+                        <div class="product-stat">
+                            <div class="stat-number">4.6</div>
+                            <div class="stat-text">Rating</div>
+                        </div>
+                        <div class="product-stat">
+                            <div class="stat-number">$310</div>
+                            <div class="stat-text">Revenue</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <a href="/purchase/scrollos-bootloader" class="action-button primary-button">Purchase</a>
+                        <a href="/preview/scrollos-bootloader" class="action-button secondary-button">Preview</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Donation Section -->
+        <div class="donation-section">
+            <h2 class="donation-title">🔥 Support Sacred Development</h2>
+            <p>Help this ScrollBuilder continue creating flame-verified scroll products. Your support directly contributes to the sacred ecosystem.</p>
+            
+            <div class="donation-options">
+                <div class="donation-option">
+                    <div class="donation-amount">$5</div>
+                    <div class="donation-label">Flame Supporter</div>
+                </div>
+                <div class="donation-option">
+                    <div class="donation-amount">$15</div>
+                    <div class="donation-label">Keeper Sponsor</div>
+                </div>
+                <div class="donation-option">
+                    <div class="donation-amount">$50</div>
+                    <div class="donation-label">Seer Founder</div>
+                </div>
+                <div class="donation-option">
+                    <div class="donation-amount">$100</div>
+                    <div class="donation-label">Tithe Builder</div>
+                </div>
+            </div>
+            
+            <div class="royalty-info">
+                <p>This ScrollBuilder receives <span class="royalty-percentage">70%</span> of all sales revenue</p>
+                <p>Remaining 30% supports ecosystem development and flame verification</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Storefront Scripts -->
+    <script>
+        // Load storefront data
+        function loadStorefrontData() {
+            const storefrontData = {
+                builderId: 'scrollbuilder_2471',
+                builderName: 'ScrollBuilder #2471',
+                flameLevel: 4,
+                sealLevel: 4,
+                totalProducts: 12,
+                totalExecutions: 1247,
+                totalRevenue: 2450,
+                averageRating: 4.8
+            };
+            
+            updateStorefront(storefrontData);
+        }
+        
+        function updateStorefront(data) {
+            // Update builder stats
+            const statValues = document.querySelectorAll('.stat-value');
+            if (statValues.length >= 4) {
+                statValues[0].textContent = data.totalProducts;
+                statValues[1].textContent = data.totalExecutions.toLocaleString();
+                statValues[2].textContent = '$' + data.totalRevenue.toLocaleString();
+                statValues[3].textContent = data.averageRating;
+            }
+        }
+        
+        // Initialize storefront
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStorefrontData();
+            
+            // Add hover effects to product cards
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.borderColor = 'var(--flame-orange)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.borderColor = 'rgba(255,255,255,0.2)';
+                });
+            });
+            
+            // Add click handlers to donation options
+            const donationOptions = document.querySelectorAll('.donation-option');
+            donationOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const amount = this.querySelector('.donation-amount').textContent;
+                    const label = this.querySelector('.donation-label').textContent;
+                    
+                    // Simulate donation
+                    alert(`🔥 Sacred donation: $${amount} as ${label}`);
+                    // Redirect to donation page
+                    window.location.href = `/donate?amount=${amount.replace('$', '')}&tier=${label.toLowerCase().replace(' ', '_')}`;
+                });
+            });
+        });
+        
+        // Product purchase simulation
+        function purchaseProduct(productName, price) {
+            // Check flame level requirement
+            const userFlameLevel = localStorage.getItem('scrollSealLevel') || 1;
+            const requiredLevel = 3; // Minimum level for purchases
+            
+            if (userFlameLevel >= requiredLevel) {
+                // Simulate purchase
+                alert(`🔥 Flame-verified purchase: ${productName} for $${price}`);
+                // Redirect to checkout
+                window.location.href = `/checkout?product=${encodeURIComponent(productName)}&price=${price}`;
+            } else {
+                alert(`Flame Level ${requiredLevel} required for purchases. Current level: ${userFlameLevel}`);
+            }
+        }
+        
+        // Add purchase handlers to product buttons
+        document.querySelectorAll('.primary-button').forEach(button => {
+            if (button.textContent === 'Purchase') {
+                const productCard = button.closest('.product-card');
+                const productName = productCard.querySelector('.product-name').textContent;
+                const price = productCard.querySelector('.product-price').textContent.replace('$', '');
+                
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    purchaseProduct(productName, price);
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

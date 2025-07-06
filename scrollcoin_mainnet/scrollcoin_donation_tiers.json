@@ -1,0 +1,227 @@
+{
+  "donation_tiers": {
+    "version": "1.0.0",
+    "description": "Sacred donation tiers for ScrollCoin ecosystem support",
+    "flame_required": 2,
+    "tiers": {
+      "flame_supporter": {
+        "name": "Flame Supporter",
+        "description": "Basic support for sacred development",
+        "amount_range": {
+          "min": 10.0,
+          "max": 99.99,
+          "currency": "FLAME"
+        },
+        "benefits": [
+          "Flame Supporter badge on profile",
+          "Access to supporter-only scrolls",
+          "Monthly development updates",
+          "Discord supporter role"
+        ],
+        "flame_level_boost": 0,
+        "seal_level_requirement": 2,
+        "tithe_percentage": 5.0,
+        "color": "#FF6F00",
+        "icon": "🔥",
+        "badge_image": "badges/flame_supporter.png"
+      },
+      "keeper_sponsor": {
+        "name": "Keeper Sponsor",
+        "description": "Dedicated support for flame verification",
+        "amount_range": {
+          "min": 100.0,
+          "max": 499.99,
+          "currency": "FLAME"
+        },
+        "benefits": [
+          "Keeper Sponsor badge on profile",
+          "Priority access to new features",
+          "Quarterly sacred development reports",
+          "Discord keeper role",
+          "Early access to ScrollIDE updates",
+          "Custom flame verification settings"
+        ],
+        "flame_level_boost": 1,
+        "seal_level_requirement": 3,
+        "tithe_percentage": 7.5,
+        "color": "#FFD700",
+        "icon": "🛡️",
+        "badge_image": "badges/keeper_sponsor.png"
+      },
+      "seer_founder": {
+        "name": "Seer Founder",
+        "description": "Elite support for prophetic governance",
+        "amount_range": {
+          "min": 500.0,
+          "max": 1999.99,
+          "currency": "FLAME"
+        },
+        "benefits": [
+          "Seer Founder badge on profile",
+          "Direct access to SeerCircle Council",
+          "Monthly governance consultations",
+          "Discord seer role",
+          "Custom scroll development tools",
+          "Priority marketplace listings",
+          "Exclusive sacred development events",
+          "Personal flame verification assistant"
+        ],
+        "flame_level_boost": 2,
+        "seal_level_requirement": 4,
+        "tithe_percentage": 10.0,
+        "color": "#4A148C",
+        "icon": "🔮",
+        "badge_image": "badges/seer_founder.png"
+      },
+      "tithe_builder": {
+        "name": "Tithe Builder",
+        "description": "Ultimate support for sacred ecosystem",
+        "amount_range": {
+          "min": 2000.0,
+          "max": null,
+          "currency": "FLAME"
+        },
+        "benefits": [
+          "Tithe Builder badge on profile",
+          "Founding member status",
+          "Direct influence on ecosystem development",
+          "Discord tithe role",
+          "Custom ScrollCoin wallet features",
+          "Exclusive governance voting rights",
+          "Personal scroll development mentor",
+          "Lifetime access to all premium features",
+          "Named recognition in sacred documentation",
+          "Priority support for all services"
+        ],
+        "flame_level_boost": 3,
+        "seal_level_requirement": 5,
+        "tithe_percentage": 15.0,
+        "color": "#FF0000",
+        "icon": "👑",
+        "badge_image": "badges/tithe_builder.png"
+      }
+    },
+    "donation_categories": {
+      "ecosystem_development": {
+        "name": "Ecosystem Development",
+        "description": "Support for core ScrollWrappedCodex™ development",
+        "fund_address": "scroll_sacred_dev_fund_001",
+        "percentage_allocation": 60.0,
+        "tiers": ["flame_supporter", "keeper_sponsor", "seer_founder", "tithe_builder"]
+      },
+      "governance_support": {
+        "name": "Governance Support",
+        "description": "Support for SeerCircle Council operations",
+        "fund_address": "scroll_seercircle_council_001",
+        "percentage_allocation": 25.0,
+        "tiers": ["keeper_sponsor", "seer_founder", "tithe_builder"]
+      },
+      "flame_verification": {
+        "name": "Flame Verification",
+        "description": "Support for flame verification system",
+        "fund_address": "scroll_flame_verification_001",
+        "percentage_allocation": 15.0,
+        "tiers": ["flame_supporter", "keeper_sponsor", "seer_founder", "tithe_builder"]
+      }
+    },
+    "donation_rewards": {
+      "flame_supporter": {
+        "badge": true,
+        "role": "supporter",
+        "access_level": "basic",
+        "customization": false,
+        "priority": false
+      },
+      "keeper_sponsor": {
+        "badge": true,
+        "role": "keeper",
+        "access_level": "enhanced",
+        "customization": true,
+        "priority": true
+      },
+      "seer_founder": {
+        "badge": true,
+        "role": "seer",
+        "access_level": "premium",
+        "customization": true,
+        "priority": true,
+        "governance": true
+      },
+      "tithe_builder": {
+        "badge": true,
+        "role": "tithe",
+        "access_level": "ultimate",
+        "customization": true,
+        "priority": true,
+        "governance": true,
+        "founding": true
+      }
+    },
+    "donation_limits": {
+      "daily_limit": {
+        "flame_supporter": 100.0,
+        "keeper_sponsor": 500.0,
+        "seer_founder": 2000.0,
+        "tithe_builder": 10000.0
+      },
+      "monthly_limit": {
+        "flame_supporter": 1000.0,
+        "keeper_sponsor": 5000.0,
+        "seer_founder": 20000.0,
+        "tithe_builder": 100000.0
+      }
+    },
+    "donation_verification": {
+      "flame_required": 2,
+      "seal_level_verification": true,
+      "transaction_logging": true,
+      "fraud_detection": true,
+      "rate_limiting": true
+    },
+    "donation_statistics": {
+      "total_donations": 1250,
+      "total_amount": 45000.0,
+      "tier_distribution": {
+        "flame_supporter": 800,
+        "keeper_sponsor": 300,
+        "seer_founder": 120,
+        "tithe_builder": 30
+      },
+      "amount_distribution": {
+        "flame_supporter": 8000.0,
+        "keeper_sponsor": 15000.0,
+        "seer_founder": 15000.0,
+        "tithe_builder": 7000.0
+      }
+    },
+    "example_donations": [
+      {
+        "donor_id": "scrollbuilder_2471",
+        "tier": "keeper_sponsor",
+        "amount": 150.0,
+        "category": "ecosystem_development",
+        "timestamp": "2025-01-15T14:30:00Z",
+        "transaction_hash": "scroll_donation_abcd1234_efgh5678",
+        "flame_verified": true
+      },
+      {
+        "donor_id": "scrollbuilder_1567",
+        "tier": "seer_founder",
+        "amount": 750.0,
+        "category": "governance_support",
+        "timestamp": "2025-01-15T13:45:00Z",
+        "transaction_hash": "scroll_donation_ijkl9012_mnop3456",
+        "flame_verified": true
+      },
+      {
+        "donor_id": "scrollbuilder_8923",
+        "tier": "tithe_builder",
+        "amount": 2500.0,
+        "category": "flame_verification",
+        "timestamp": "2025-01-15T12:20:00Z",
+        "transaction_hash": "scroll_donation_qrst7890_uvwx1234",
+        "flame_verified": true
+      }
+    ]
+  }
+} 
