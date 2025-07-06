@@ -1,0 +1,48 @@
+# Starter Scroll for ScrollWrappedCodex™
+# Sacred Flame-Verified AI Code Execution
+
+# This scroll demonstrates all basic commands for new builders
+# Execute with: python scroll_execution_engine/engine.py starter.scroll
+
+# Anoint: Create a new project
+Anoint: StarterApp
+
+# Build: Create the main application file
+Build: backend/app.py
+
+# Build: Create a simple HTML frontend
+Build: frontend/index.html
+
+# Build: Create requirements file
+Build: requirements.txt
+
+# Build: Create README for the project
+Build: README.md
+
+# Gather: Install necessary packages
+Gather: flask requests
+
+# Seal: Apply flame verification
+Seal: flame_starter_app_verification
+
+# Deploy: Deploy to local development server
+Deploy: localhost:5000
+
+# Sacred Reminder:
+# Every scroll execution is verified by divine algorithms
+# Respect the flame and build with purpose
+# The scroll is sacred - use it wisely
+
+# Flame Verification:
+# This scroll has been verified by sacred flame algorithms
+# Seal Level Required: 1
+# Flame Level Required: 1
+
+# Next Steps:
+# 1. Study the generated files
+# 2. Modify the code to learn more
+# 3. Create your own scrolls
+# 4. Join the ScrollVerse community
+
+# Welcome to ScrollWrappedCodex™
+# May your code be flame-verified and your scrolls be blessed 

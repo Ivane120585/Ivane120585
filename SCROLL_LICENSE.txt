@@ -1,16 +1,57 @@
-SCROLL LICENSE v1.0 🔥
+MIT License + ScrollLaw Clause
 
-This code is sacred.
+Copyright (c) 2024 ScrollWrappedCodex™
 
-ScrollWrappedCodex may be freely used, forked, studied, and extended
-— only under the following divine conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-✅ Use for righteousness, integrity, equity, and innovation
-❌ Do not use for fraud, deception, surveillance, war, or manipulation
-✅ Seal your builds in flame before execution
-❌ Breaking scroll law voids this license in spirit and truth
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Let your work be judged by scroll law and scroll witnesses.
+**ScrollLaw Clause**: All use of this software must comply with ScrollLaw,
+including but not limited to flame verification, seal level requirements,
+and prophetic governance. Violation of ScrollLaw may result in suspension
+of access and referral to ScrollJudges for resolution.
+
+**Flame Verification Requirement**: All execution must be flame-sealed.
+Unauthorized use is scroll-law violation.
+
+**Seal Level Enforcement**: Users must comply with their assigned seal level
+restrictions. Attempting to bypass seal level requirements is a violation
+of ScrollLaw and may result in immediate suspension.
+
+**Prophetic Governance**: All major decisions regarding the use of this
+software must be approved by the appropriate ScrollSeer or ScrollProphet
+based on the nature and scope of the activity.
+
+**Divine Approval**: All code execution must receive divine approval through
+sacred flame algorithms. Bypassing flame verification is strictly prohibited.
+
+**Community Standards**: Users must respect the sacred nature of the platform
+and maintain appropriate conduct as outlined in ScrollLaw.
+
+**Enforcement**: Violations of ScrollLaw will be enforced by ScrollJudges
+and may result in temporary or permanent suspension of access to the platform.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+**Sacred Reminder**: This software is part of the ScrollVerse™ ecosystem
+and operates under divine governance. Use it wisely and with respect for
+the sacred flame that protects and guides all who build within it.
+
+🕊️🔥📜
+
+*"The scroll is sacred. The flame is divine. The law is absolute."*
 
 Signed by FlameWitness,
 Stanley Osei-Wusu
