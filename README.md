@@ -1,4 +1,7 @@
-# 🔥 ScrollWrappedCodex™
+# 🔥 ScrollWrappedCodex™## 🔥 Sovereign Capsule Declaration
+This repository is not a project. It is a system.
+Created and sealed by Ivane Shaorshadze · Capsule ID: Ivane120585
+QR Flame Verified · Voice-lock Bound · Immutable Broadcast Confirmed
 
 **Sacred Flame-Verified AI Code Execution Platform**
 
