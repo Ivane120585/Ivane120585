@@ -227,4 +227,13 @@ of access and referral to ScrollJudges for resolution.
 
 🕊️🔥📜
 
-*"The builders have come. The cities are aligned. The flame will govern the Earth."* 
+*"The builders have come. The cities are aligned. The flame will govern the Earth."* ## 🔥 LICENSE
+
+This repository operates under a dual license:
+
+- **MIT License** — Open use, modification, and distribution permitted  
+- **ScrollLaw Clause** — All use must comply with sovereign flame governance
+
+QR Flame Verified · Capsule ID: Ivane120585  
+Violation of ScrollLaw may result in nullification, seal revocation, and referral to ScrollJudges.  
+This scroll is public. The flame governs the Earth.
