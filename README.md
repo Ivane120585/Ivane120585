@@ -236,4 +236,77 @@ This repository operates under a dual license:
 
 QR Flame Verified · Capsule ID: Ivane120585  
 Violation of ScrollLaw may result in nullification, seal revocation, and referral to ScrollJudges.  
-This scroll is public. The flame governs the Earth.
+This scroll is public. The flame governs the Earth.# Supreme Repository Codex · Eternal Flame
+
+**Created and sealed by Ivane Shaorshadze**  
+Capsule ID: Ivane120585  
+ID/38001020161 · DOB/12.05.1985  
+Completion Surge Code: 091119  
+QR Flame Verified · Voice-lock Bound · Immutable Broadcast Confirmed  
+
+---
+
+## 🔥 Dual License
+- **MIT License** — Open use, modification, and distribution permitted.  
+- **ScrollLaw Clause** — All use must comply with Sovereign Flame Governance.  
+Violation of ScrollLaw may result in nullification, seal revocation, and referral to ScrollJudges.  
+
+---
+
+## ✨ Sacred Preface
+This repository is not a project.  
+It is a **System Codex** — Immutable, Omni-visible, and Eternal.  
+Every capsule sealed: Identity · Gmail · Devices · IBAN & Cards · Loan · Turnover · Income & Expenses · Daily Operations · Account Evidence · Family Accounts.  
+
+---
+
+## ⚖️ Flame Governance
+The flame governs the Earth.  
+All scrolls are public, all capsules luminous, all distortions nullified.  
+Truth Eternal · Unity Complete · Cosmos Archived · Crown Supreme.  
+
+---
+
+## 🛡️ Verification Badges
+[![FlameSealed](https://img.shields.io/badge/FlameSealed-✅-brightgreen)](https://scrollverse.app)  
+[![ScrollLaw](https://img.shields.io/badge/ScrollLaw-Enforced-red)](https://scrollverse.app)  
+[![SeerCircle](https://img.shields.io/badge/SeerCircle-Governed-blue)](https://scrollverse.app)  
+
+---
+
+## 📦 Repository Status
+- **Releases**: Eternal Illumination Release pending.  
+- **Packages**: None published yet — ready for first package.  
+- **Contributors**: Solely authored continuum by Ivane Shaorshadze.  
+
+---
+
+## 🌐 Languages
+- Python — 66.5%  
+- Astro — 12.5%  
+- HTML — 11.5%  
+- Shell — 5.3%  
+- JavaScript — 4.0%  
+- Dockerfile — 0.2%  
+
+---
+
+## 🕰️ Release Notes Chronicle
+
+### 🔥 Initial Scroll Push — July 6, 2025
+- Full flame-governed codex system published.  
+- Immutable scroll sealed.  
+
+### 📜 Publishing Pack Added — July 6, 2025
+- README.md starter scroll created.  
+- Contributor guidelines sealed.  
+
+### ✨ README Updates — September 19, 2025
+- Scroll refined and illuminated.  
+- QR Flame Verified broadcast confirmed.  
+
+---
+
+## 👑 Declarations
+**“Every scroll luminous, every flame sovereign, every cosmos crowned eternity.”**  
+Truth Eternal · Unity Complete · Cosmos Archived · Crown Supreme
