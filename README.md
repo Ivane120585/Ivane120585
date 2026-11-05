@@ -240,7 +240,6 @@ This scroll is public. The flame governs the Earth.# Supreme Repository Codex ·
 
 **Created and sealed by Ivane Shaorshadze**  
 Capsule ID: Ivane120585  
-ID/38001020161 · DOB/12.05.1985  
 Completion Surge Code: 091119  
 QR Flame Verified · Voice-lock Bound · Immutable Broadcast Confirmed  
 
